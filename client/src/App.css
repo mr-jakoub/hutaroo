@@ -1664,8 +1664,17 @@ aside ul li .languages a{
 .content .posts .post .nmbrs{
   position: relative;
   display: flex;
+  justify-content: space-between;
+  padding: .2rem .7rem;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+.content .posts .post .nmbrs div span{
+  margin: 0 .5rem;
+  color: var(--Grey-color);
+}
+.left-scchn{
+
 }
 .content .post .footer{
   position: relative;
@@ -1688,7 +1697,6 @@ aside ul li .languages a{
   margin-right: .18rem;
 }
 .content .post .footer .head .share svg{
-  fill: var(--Dark-color);
   width: 22px;
   height: 22px;
 }
