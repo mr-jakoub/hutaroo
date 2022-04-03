@@ -1674,23 +1674,24 @@ aside ul li .languages a{
   color: var(--Grey-color);
 }
 .content .posts .post .nmbrs .svg-icon{
-  padding: 2.5px;
-  width: 26px;
-  height: 26px;
-  box-shadow: var(--box-shadow2);
+  padding: 2px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
+  box-shadow: inset -2px -2px 10px rgba(0,0,0,.13);
+  justify-content: center;
 }
 .content .posts .post .nmbrs svg{
-  height: 18px;
-  width: 18px;
+  height: 12px;
+  width: 12px;
 }
 .content .posts .post .nmbrs .next-icon{
   margin: 0;
-  margin-right: .5rem;
-  margin-left: -1rem;
+  background: var(--Primary-color);
+  margin-left: -.5rem;
 }
 .content .posts .post .nmbrs .next-icon svg{
-  fill: var(--Primary-color);
+  fill: white;
 }
 .content .post .footer{
   position: relative;
