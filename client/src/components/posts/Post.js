@@ -226,11 +226,11 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                 }
             </div>}
             <div className="nmbrs">
-                <div className="left-scchn">
+                <div>
                     <span className='underline'>likes : {post.likes.length === 0 ? '' : post.likes.length}</span>
                     <span className='underline'>rises : {post.rises.length === 0?'':post.rises.length}</span>
                 </div>
-                <div className="right-scchn">
+                <div>
                     <span className='underline'>{commentsLength} Comments</span>
                     <span className='underline'>10 Shares</span>
                 </div>
