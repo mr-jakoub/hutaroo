@@ -1673,8 +1673,24 @@ aside ul li .languages a{
   margin: 0 .5rem;
   color: var(--Grey-color);
 }
-.left-scchn{
-
+.content .posts .post .nmbrs .svg-icon{
+  padding: 2.5px;
+  width: 26px;
+  height: 26px;
+  box-shadow: var(--box-shadow2);
+  border-radius: 50%;
+}
+.content .posts .post .nmbrs svg{
+  height: 18px;
+  width: 18px;
+}
+.content .posts .post .nmbrs .next-icon{
+  margin: 0;
+  margin-right: .5rem;
+  margin-left: -1rem;
+}
+.content .posts .post .nmbrs .next-icon svg{
+  fill: var(--Primary-color);
 }
 .content .post .footer{
   position: relative;
