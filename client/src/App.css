@@ -1457,10 +1457,12 @@ aside ul li .languages a{
 }
 .content .posts .post{
   position: relative;
+  transform-origin: top;
   min-height: 50px;
   width: 100%;
   margin: .75rem 0;
   border-radius: var(--Radius-xs);
+  z-index: 3;
 }
 .content .posts .post .kipper{
   position: relative;
@@ -1470,16 +1472,19 @@ aside ul li .languages a{
   background: var(--White-color);
   box-shadow: var(--box-shadow2);
   padding-top: .5rem;
+  transform: translateX(-100%);
+  z-index: 2;
 }
 .content .posts .behind-post{
   position: absolute;
+  transform-origin: top;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border-radius: var(--Radius-xs);
   box-shadow: var(--box-shadow2);
-  z-index: -1;
+  z-index: 1;
 }
 .content .posts .behind-post::before{
   content: '';
