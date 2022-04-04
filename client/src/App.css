@@ -1168,7 +1168,12 @@ aside ul li .languages a{
   position: relative;
   width: 100%;
   border-radius: var(--Primary-radius);
-  padding: 3rem 350px 3rem 320px;
+  /* padding: 3rem 350px 3rem 320px; */
+  padding: 3.5rem 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   min-height: calc(100vh - 5rem);
 }
 .dash .content .rises{
@@ -1443,21 +1448,52 @@ aside ul li .languages a{
 }
 .content .posts{
   position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   min-height: 100%;
-  margin-bottom: 3.5rem;
-  width: 100%;
+  width: 600px;
 }
 .content .posts .post{
   position: relative;
   min-height: 50px;
-  margin: 1.8rem 0;
-  padding-top: .5rem;
+  width: 100%;
+  margin: .75rem 0;
+  border-radius: var(--Radius-xs);
+}
+.content .posts .post .kipper{
+  position: relative;
+  width: 100%;
+  height: 100%;
   border-radius: var(--Radius-xs);
   background: var(--White-color);
   box-shadow: var(--box-shadow2);
+  padding-top: .5rem;
 }
-.content .posts .post.rised{
-  box-shadow: var(--box-shadow);
+.content .posts .behind-post{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--Radius-xs);
+  box-shadow: var(--box-shadow2);
+  z-index: -1;
+}
+.content .posts .behind-post::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 90%;
+  width: 96%;
+  background: linear-gradient(to right, var(--Grey-color) 50%, transparent 0%) top/20px 1px repeat-x,
+              linear-gradient(var(--Grey-color) 50%, transparent 0%) right/1px 20px repeat-y,
+              linear-gradient(to right, var(--Grey-color) 50%, transparent 0%) bottom/20px 1px repeat-x,
+              linear-gradient(var(--Grey-color) 50%, transparent 0%) left/1px 20px repeat-y;
+  z-index: 99;
 }
 /* Inner */
 .content .posts .post .inner{
@@ -1669,28 +1705,25 @@ aside ul li .languages a{
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.content .posts .post .nmbrs div span{
+.content .posts .post .nmbrs div{
   margin: 0 .5rem;
-  color: var(--Grey-color);
 }
 .content .posts .post .nmbrs .svg-icon{
   padding: 2px;
-  width: 22px;
-  height: 22px;
+  width: 23px;
+  height: 23px;
+  color: var(--Grey-color);
   border-radius: 50%;
   box-shadow: inset -2px -2px 10px rgba(0,0,0,.13);
   justify-content: center;
 }
+.content .posts .post .nmbrs .svg-icon.next-icon{
+  margin-left: -.17rem;
+  margin-right: .25rem;
+}
 .content .posts .post .nmbrs svg{
-  height: 12px;
-  width: 12px;
-}
-.content .posts .post .nmbrs .next-icon{
-  margin: 0;
-  background: var(--Primary-color);
-  margin-left: -.5rem;
-}
-.content .posts .post .nmbrs .next-icon svg{
+  height: 13px;
+  width: 13px;
   fill: white;
 }
 .content .post .footer{
@@ -1721,18 +1754,8 @@ aside ul li .languages a{
   cursor: pointer;
   font-size: .95rem;
   color: var(--Grey-color);
+  user-select: none;
   font-weight: bolder;
-}
-.content .post .footer .head .rise span,
-.content .post .footer .head .rise svg{
-  fill: var(--Primary-color);
-  color: var(--Primary-color);
-}
-.under:hover{
-  text-decoration: underline;
-}
-.content .post .footer .head svg:hover{
-  fill: var(--Grey-color);
 }
 /* Comments */
 .content .posts .post .comments{
