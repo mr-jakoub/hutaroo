@@ -25,6 +25,7 @@
   --Transition1: 400ms ease-out;
 
   /* Shadows */
+  --trangle-shadow: 0 -.5px .5px rgba(0,0,0,.15);
   --black-shadow:rgba(0,0,0,.4);
   --white-shadow:rgba(255,255,255,.4);
   --box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15), 0 1px 2px 0 rgba(60,64,67,0.3);
@@ -153,6 +154,17 @@ a:not(.logo):hover{
 }
 .hidden-scroll::-webkit-scrollbar{
   width: 0;
+}
+@keyframes destroyeasly{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(0);
+  }
 }
 
 /* Shapes */
@@ -1453,16 +1465,27 @@ aside ul li .languages a{
   flex-direction: column;
   align-items: center;
   min-height: 100%;
-  width: 600px;
+  width: 750px;
+  overflow: hidden;
+  padding: 0 1px;
+}
+.content .posts::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% / 11);
+  height: 100%;
+  backdrop-filter: blur(15px);
+  z-index: 3;
 }
 .content .posts .post{
   position: relative;
   transform-origin: top;
   min-height: 50px;
-  width: 100%;
+  width: 600px;
   margin: .75rem 0;
   border-radius: var(--Radius-xs);
-  z-index: 3;
 }
 .content .posts .post .kipper{
   position: relative;
@@ -1472,8 +1495,21 @@ aside ul li .languages a{
   background: var(--White-color);
   box-shadow: var(--box-shadow2);
   padding-top: .5rem;
-  transform: translateX(-100%);
   z-index: 2;
+}
+.content .posts .post .kipper.destroy{
+  animation: destroy 700ms 400ms ease forwards;
+}
+@keyframes destroy{
+  0%{
+    transform: translate(0);
+  }
+  50%{
+    transform: translate(10%);
+  }
+  100%{
+    transform: translate(-120%);
+  }
 }
 .content .posts .behind-post{
   position: absolute;
@@ -1553,7 +1589,11 @@ aside ul li .languages a{
   font-weight: bolder;
   letter-spacing: 1px;
   font-size: .92rem;
-  pointer-events: visible;
+}
+.content .posts .post .inner .head .user-info span.destroy,
+.content .posts .post .inner .head .user-info p.destroy,
+.content .posts .post .inner .head .user-info .inline label.destroy{
+  animation: destroyeasly 500ms 300ms ease-in forwards;
 }
 .content .posts .post .avatar{
   position: relative;
@@ -1562,7 +1602,9 @@ aside ul li .languages a{
   border-radius: 50%;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-  pointer-events: visible;
+}
+.content .posts .post .avatar.destroy{
+  animation: destroyeasly 500ms 100ms ease-in forwards;
 }
 .content .posts .post .avatar img{
   position: absolute;
@@ -1578,16 +1620,13 @@ aside ul li .languages a{
   position: absolute;
   width: 100%;
   height: 100%;
+  user-select: none;
   pointer-events: none;
+  transform-origin: center;
   z-index: 99;
 }
-.content .posts .post .dropdown > span{
-  border-radius: 50%;
-  background: transparent;
-  transition: 300ms ease;
-}
-.content .posts .post .dropdown > span:hover{
-  background: rgba(0,0,0,.08);
+.content .posts .post .dropdown.destroy span{
+  animation: destroyeasly 500ms 600ms ease-in forwards;
 }
 .content .posts .post .dropdown span{
   position: absolute;
@@ -1596,9 +1635,17 @@ aside ul li .languages a{
   width: 28px;
   height: 28px;
   justify-content: center;
-  align-items: center;
   pointer-events: visible;
+  user-select: none;
   cursor: pointer;
+}
+.content .posts .post .dropdown > span{
+  border-radius: 50%;
+  background: transparent;
+  transition: 300ms ease;
+}
+.content .posts .post .dropdown > span:hover{
+  background: rgba(0,0,0,.08);
 }
 .content .posts .post .dropdown span svg{
   width: 20px;
@@ -1616,10 +1663,11 @@ aside ul li .languages a{
   align-items: flex-start;
   flex-direction: column;
   padding: 0 .5rem;
-  pointer-events: visible;
   background: var(--White-color);
   box-shadow: var(--box-shadow2);
   border-radius: var(--Radius-xs);
+  pointer-events: visible;
+  z-index: 99;
 }
 .content .posts .post .dropdown ul.show{
   display: flex;
@@ -1633,6 +1681,7 @@ aside ul li .languages a{
   border-color: transparent transparent var(--White-color) transparent;
   border-style: solid;
   border-width: 0px 10px 10px 10px;
+  filter: drop-shadow(var(--trangle-shadow));
   height: 0px;
   width: 0px;
 }
@@ -1671,6 +1720,9 @@ aside ul li .languages a{
   position: relative;
   padding: .3rem 0;
   z-index: 3;
+}
+.content .posts .post .body.destroy{
+  animation: destroy 700ms 500ms forwards;
 }
 .content .posts .post .body .link{
   padding: .3rem 1.2rem;
@@ -1737,13 +1789,23 @@ aside ul li .languages a{
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  pointer-events: none;
   z-index: 3;
 }
 .content .post .footer .head .react{
   cursor: pointer;
-  pointer-events: visible;
   margin: 0 .5rem;
+}
+.content .post .footer .head .like.destroy{
+  animation: destroyeasly 500ms 200ms ease-in forwards;
+}
+.content .post .footer .head .rise.destroy{
+  animation: destroyeasly 500ms 300ms ease-in forwards;
+}
+.content .post .footer .head .comment.destroy{
+  animation: destroyeasly 500ms 400ms ease-in forwards;
+}
+.content .post .footer .head .share.destroy{
+  animation: destroyeasly 500ms 500ms ease-in forwards;
 }
 .content .post .footer .head .react svg{
   width: 26px;
@@ -1847,8 +1909,9 @@ aside ul li .languages a{
   padding: 0;
   padding-left: .5rem;
 }
-.content .posts .post .comments .comments-card .inline .dropdown{
-  margin-left: .6rem;
+.content .posts .post .comments .comments-card .dropdown{
+  top: 17px;
+  right: 10px;
 }
 .content .posts .post .comments .comments-card .footer{
   margin: 0;
@@ -1877,7 +1940,6 @@ aside ul li .languages a{
   color: var(--Dark-color);
   font-size: .7rem;
   cursor: pointer;
-  pointer-events: visible;
 }
 .content .posts .post .comments .comments-card .footer .head .cmntsnbr svg{
   width: 17px;
@@ -2728,9 +2790,8 @@ aside ul li .languages a{
       font-size: .85rem;
       padding: 0 1rem;
   }
-  .content .posts{
-    box-shadow: none;
-    padding: 0;
+  .content .posts .post{
+    width: 450px;
   }
   .content .posts .post .avatar{
     width: 50px;
@@ -2798,12 +2859,22 @@ aside ul li .languages a{
   }
 }
 @media (max-width: 471px) {
+  .content .posts .post{
+    width: 350px;
+  }
   .content .posts .post .inner .head .user-feeling{
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
       margin-top: 1rem;
+  }
+  .content .post .footer{
+    justify-content: center;
+    padding: .5rem .2rem;
+  }
+  .content .post .footer .head span{
+    font-size: .8rem;
   }
   .sm-foricon{
     font-size: 15px;
