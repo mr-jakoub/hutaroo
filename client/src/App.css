@@ -155,17 +155,6 @@ a:not(.logo):hover{
 .hidden-scroll::-webkit-scrollbar{
   width: 0;
 }
-@keyframes destroyeasly{
-  0%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.2);
-  }
-  100%{
-    transform: scale(0);
-  }
-}
 
 /* Shapes */
 .shapes span{
@@ -1497,20 +1486,6 @@ aside ul li .languages a{
   padding-top: .5rem;
   z-index: 2;
 }
-.content .posts .post .kipper.destroy{
-  animation: destroy 700ms 400ms ease forwards;
-}
-@keyframes destroy{
-  0%{
-    transform: translate(0);
-  }
-  50%{
-    transform: translate(10%);
-  }
-  100%{
-    transform: translate(-120%);
-  }
-}
 .content .posts .behind-post{
   position: absolute;
   transform-origin: top;
@@ -1590,11 +1565,6 @@ aside ul li .languages a{
   letter-spacing: 1px;
   font-size: .92rem;
 }
-.content .posts .post .inner .head .user-info span.destroy,
-.content .posts .post .inner .head .user-info p.destroy,
-.content .posts .post .inner .head .user-info .inline label.destroy{
-  animation: destroyeasly 500ms 300ms ease-in forwards;
-}
 .content .posts .post .avatar{
   position: relative;
   width: 50px;
@@ -1602,9 +1572,6 @@ aside ul li .languages a{
   border-radius: 50%;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-}
-.content .posts .post .avatar.destroy{
-  animation: destroyeasly 500ms 100ms ease-in forwards;
 }
 .content .posts .post .avatar img{
   position: absolute;
@@ -1624,9 +1591,6 @@ aside ul li .languages a{
   pointer-events: none;
   transform-origin: center;
   z-index: 99;
-}
-.content .posts .post .dropdown.destroy span{
-  animation: destroyeasly 500ms 600ms ease-in forwards;
 }
 .content .posts .post .dropdown span{
   position: absolute;
@@ -1721,9 +1685,6 @@ aside ul li .languages a{
   padding: .3rem 0;
   z-index: 3;
 }
-.content .posts .post .body.destroy{
-  animation: destroy 700ms 500ms forwards;
-}
 .content .posts .post .body .link{
   padding: .3rem 1.2rem;
   border-radius: 25px;
@@ -1794,18 +1755,6 @@ aside ul li .languages a{
 .content .post .footer .head .react{
   cursor: pointer;
   margin: 0 .5rem;
-}
-.content .post .footer .head .like.destroy{
-  animation: destroyeasly 500ms 200ms ease-in forwards;
-}
-.content .post .footer .head .rise.destroy{
-  animation: destroyeasly 500ms 300ms ease-in forwards;
-}
-.content .post .footer .head .comment.destroy{
-  animation: destroyeasly 500ms 400ms ease-in forwards;
-}
-.content .post .footer .head .share.destroy{
-  animation: destroyeasly 500ms 500ms ease-in forwards;
 }
 .content .post .footer .head .react svg{
   width: 26px;
