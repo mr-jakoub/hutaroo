@@ -43,7 +43,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
     // handlers
     let dropdownRef = useRef()
     let handleDropDown = (id, type) =>{
-        dropdownRef.current.style.zIndex = "100"
+        dropdownRef.current.style.zIndex === "100" ? dropdownRef.current.style.zIndex = "99" : dropdownRef.current.style.zIndex = "100"
         if(type==='dpMenu'){
             id === dropDown.postId && dropDown.type ? setDropDown({ type: '', postId: id }) : setDropDown({ type: 'dpMenu', postId: id })
         }else if(type==='readMore'){
@@ -62,8 +62,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
     }
     return (
         <div className={risedPost?"post blured-background rised":"post blured-background"}>
-            {/* behind post */}
-            <div className="behind-post"></div>
+            
             {post._id &&
             <div ref={dropdownRef} className="dropdown">
                 <span onClick={()=>handleDropDown(post._id, 'dpMenu')} className="svg-icon toggler">
@@ -250,6 +249,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                         </span>
                     </div>
                     <div>
+                    {commentsLength > 0 &&
                         <span style={{background: "var(--Light-color)",margin: "0",marginRight: ".25rem"}} className='underline svg-icon'>
                             <svg viewBox="0 0 60 60">
                                 <g>
@@ -264,10 +264,11 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                                         c0,4.942-1.33,9.792-3.847,14.026c-0.148,0.25-0.182,0.551-0.089,0.827l4.402,13.209L43.015,53.759z"/>
                                 </g>
                             </svg>
-                        </span>
+                        </span>}
                         <span style={{marginRight: ".5rem"}} className='underline'>
                             {commentsLength === 0?'':commentsLength}
                         </span>
+                        {commentsLength > 0 &&
                         <span style={{background: "var(--Light-color)",margin: "0",marginRight: ".25rem"}} className='underline svg-icon'>
                             <svg viewBox="0 0 512.001 512.001">
                                 <g>
@@ -293,7 +294,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                                     </g>
                                 </g>
                             </svg>
-                        </span>
+                        </span>}
                         <span className='underline'>
                             {commentsLength === 0?'':commentsLength}
                         </span>
@@ -303,7 +304,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                 <div className="footer">
                     <div className="head">
                         {post.likes && 
-                        <div onClick={()=>addLike(post._id)} className="like react svg-icon">
+                        <a onClick={()=>addLike(post._id)} className="like react svg-icon">
                             <svg id="like" className="liked" viewBox="0 0 412.735 412.735">
                                 <g>
                                     <g>
@@ -312,9 +313,9 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                                 </g>
                             </svg>
                             <span style={likedPost ?{color:'var(--Danger-color)'}:{color:'var(--Grey-color)'}} className='sm-foricon'>Like</span>
-                        </div>
+                        </a>
                         }
-                        <div onClick={()=>handleDropDown(post._id, 'commentSection')} className="comment react svg-icon">
+                        <a onClick={()=>handleDropDown(post._id, 'commentSection')} className="comment react svg-icon">
                             <svg  viewBox="0 0 60 60">
                                 <g>
                                     <path d="M27.885,5.007C20.06,5.915,12.843,10.774,9.05,17.688c-0.266,0.484-0.088,1.092,0.396,1.358
@@ -329,15 +330,15 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                                 </g>
                             </svg>
                             <span className='sm-foricon'>Comment</span>
-                        </div>
+                        </a>
                         {post.rises && 
-                        <div onClick={()=>addRise(post._id)} className="rise react svg-icon">
+                        <a onClick={()=>addRise(post._id)} className="rise react svg-icon">
                             <svg viewBox="0 0 512 512"><g><ellipse cx="373.232" cy="277.044" rx="9.998" ry="9.998" transform="matrix(.242 -.97 .97 .242 14.064 572.092)"/><path fill={risedPost ?'var(--Primary-color)':''} d="m510.987 146.112-35.384-107.939c-2.473-7.589-7.767-13.733-14.909-17.299-7.143-3.567-15.236-4.109-22.769-1.533l-109.627 37.254c-10.614 3.608-16.316 15.179-12.709 25.794l8.285 24.378c3.607 10.615 15.178 16.314 25.794 12.709l25.675-8.725-117.157 275.291c-.057.134-.068.137-.138.159-.137.043-.267.015-.295-.001-.007-.004-.04-.037-.089-.116l-103.006-166.184c-7.662-12.362-20.903-19.369-35.444-18.791-14.532.595-27.164 8.68-33.789 21.627l-83.182 162.545c-2.475 4.835-2.918 10.344-1.249 15.512s5.251 9.377 10.086 11.851l30.307 15.51c4.835 2.475 10.342 2.918 15.512 1.249 5.168-1.669 9.377-5.251 11.851-10.086l54.761-107.008c.057-.111.078-.153.25-.16.171-.01.196.032.262.139.028.045.056.09.085.135l104.985 163.539c6.156 9.588 16.163 16.231 27.467 17.879 11.185 1.63 22.917-1.487 31.594-8.781 4.697-3.948 8.395-9.002 10.856-14.616l65.014-148.284c2.222-5.068-.085-10.978-5.153-13.199-5.063-2.22-10.976.084-13.199 5.153l-65.014 148.285c-2.863 6.53-9.023 11.02-16.122 11.72-7.392.729-14.565-2.729-18.58-8.982l-104.95-163.488c-3.923-6.268-10.675-9.835-18.063-9.523-7.427.304-13.882 4.436-17.269 11.053l-54.762 107.008c-.021.04-.055.108-.171.146-.114.037-.184.002-.224-.018l-30.307-15.51c-.041-.021-.109-.056-.146-.172s-.002-.183.018-.224l83.182-162.545c3.289-6.426 9.558-10.439 16.771-10.734 7.207-.295 13.789 3.191 17.592 9.327l103.006 166.183c4.022 6.489 11.251 10.16 18.861 9.559 7.612-.593 14.186-5.331 17.143-12.338l125.92-295.885c1.548-3.636.813-7.842-1.875-10.739s-6.826-3.942-10.568-2.672l-46.894 15.936c-.155.052-.321-.031-.374-.183l-8.283-24.377c-.053-.154.029-.321.183-.373l109.644-37.26c2.433-.832 5.045-.659 7.349.493 2.304 1.151 4.013 3.133 4.815 5.597l35.39 107.956c.051.154-.033.321-.188.371l-24.465 8.02c-.156.049-.321-.034-.372-.188l-14.901-45.455c-1.294-3.947-4.888-6.686-9.038-6.886-4.152-.201-7.99 2.18-9.658 5.985l-51.497 117.456c-2.222 5.068.085 10.978 5.153 13.199 5.065 2.223 10.977-.083 13.199-5.153l40.968-93.442 6.734 20.539c3.494 10.653 14.998 16.479 25.655 12.987l24.465-8.02c10.654-3.493 16.48-15.001 12.988-25.655z"/></g></svg>
                             <span style={risedPost ?{color:'var(--Primary-color)'}:{color:'var(--Grey-color)'}} className='sm-foricon'>Rise</span>
-                        </div>}
+                        </a>}
                     </div>
                     {!profilePosts && <div className="head">
-                        <div className="share react svg-icon">
+                        <a className="share react svg-icon">
                             <svg viewBox="0 0 512.001 512.001">
                                 <g>
                                     <g>
@@ -363,7 +364,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                                 </g>
                             </svg>
                             <span className='sm-foricon'>Share</span>
-                        </div>
+                        </a>
                     </div>}
                 </div>
                 {showedComments &&<div style={{margin: "0"}} className="line"></div>}
@@ -396,6 +397,8 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                     }
                 </div>
             </div>
+            {/* behind post */}
+            <div className="behind-post"></div>
         </div>
     )
 }

@@ -30,6 +30,7 @@ const Comment = ({ auth, deleteComment, addCommentLike, addCommentDislike, postO
         }else{
             id === readMore.commentId && readMore.type ? setReadMore({ type: '', commentId: id }) : setReadMore({ type: 'readMore', commentId: id })
         }
+        return dropdownRef.current
     }
     return (
         <div className="comments-card">

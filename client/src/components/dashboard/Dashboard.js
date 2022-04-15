@@ -39,7 +39,6 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
             link: ''
         })
     }
-
     useEffect(() => {
         getCurrentProfile()
     }, [getCurrentProfile])
@@ -533,8 +532,8 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                         )}
                     </div>
                     <div className="my-3">
-                        <div className="header mx-2">
-                            <h3 className="text-sm svg-icon text-bold">Posts&nbsp;&nbsp;
+                        <div className="header">
+                            <p className="text-sm svg-icon text-bold">Posts&nbsp;&nbsp;
                                 <svg viewBox="0 0 512 512">
                                     <g>
                                         <g>
@@ -545,7 +544,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                                         </g>
                                     </g>
                                 </svg>
-                            </h3>
+                            </p>
                             <div className="filters">
                                 <button className="text-bold btn active">Opinions</button>
                                 <button className="text-bold btn">Rooms</button>

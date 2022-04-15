@@ -11,6 +11,7 @@
   --Light-color1: #eeeeee;
   --Dark-color: #242526;
   --Grey-color: #808388;
+  --Smooth-Back: rgba(0,0,0,.07);
   --Primary-color: #57be6c;/*#57be6c*/
   --Danger-color: #cc0e00;
   --Shadow-sm: rgba(0,0,0,.38);
@@ -1165,11 +1166,11 @@ aside ul li .languages a{
   display: flex;
   overflow: hidden;
 }
-.dash .content{
+.dash .content,
+.profile .content{
   position: relative;
   width: 100%;
   border-radius: var(--Primary-radius);
-  /* padding: 3rem 350px 3rem 320px; */
   padding: 3.5rem 0;
   display: flex;
   justify-content: center;
@@ -1431,16 +1432,18 @@ aside ul li .languages a{
 
 /* Posts */
 .content .header{
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 600px;
 }
 .content .filters button{
   font-size: .85rem;
   background: transparent;
-  border-radius: var(--Radius-xs);
+  border-radius: 25px;
   padding: .35rem .5rem;
-  margin: 0 .65rem;
+  margin-left: .65rem;
   color: var(--Dark-color);
 }
 .content .filters button.active{
@@ -1454,19 +1457,8 @@ aside ul li .languages a{
   flex-direction: column;
   align-items: center;
   min-height: 100%;
-  width: 750px;
-  overflow: hidden;
+  width: 600px;
   padding: 0 1px;
-}
-.content .posts::after{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% / 11);
-  height: 100%;
-  backdrop-filter: blur(15px);
-  z-index: 3;
 }
 .content .posts .post{
   position: relative;
@@ -1484,18 +1476,16 @@ aside ul li .languages a{
   background: var(--White-color);
   box-shadow: var(--box-shadow2);
   padding-top: .5rem;
-  z-index: 2;
 }
 .content .posts .behind-post{
   position: absolute;
-  transform-origin: top;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border-radius: var(--Radius-xs);
   box-shadow: var(--box-shadow2);
-  z-index: 1;
+  z-index: -1;
 }
 .content .posts .behind-post::before{
   content: '';
@@ -1746,30 +1736,41 @@ aside ul li .languages a{
 }
 .content .post .footer{
   position: relative;
-  padding: .5rem .7rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
+  padding: 0 .5rem;
   z-index: 3;
 }
 .content .post .footer .head .react{
   cursor: pointer;
-  margin: 0 .5rem;
+  margin: .3rem .1rem;
+  padding: .3rem 1rem;
+  border-radius: var(--Radius-xs);
+  transform: scale(1);
+  background: transparent;
+}
+.content .post .footer .head .react:active{
+  transform: scale(.969);
+}
+.content .post .footer .head .react:hover{
+  background: var(--Smooth-Back);
 }
 .content .post .footer .head .react svg{
-  width: 26px;
-  height: 26px;
+  width: 23px;
+  height: 23px;
   fill: var(--Grey-color);
   margin-right: .18rem;
 }
 .content .post .footer .head .share svg{
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 .content .post .footer .head span{
   cursor: pointer;
-  font-size: .95rem;
+  font-size: .9375rem;
   color: var(--Grey-color);
+  font-weight: 600;
   user-select: none;
   font-weight: bolder;
 }
@@ -1911,18 +1912,8 @@ aside ul li .languages a{
   padding-top: 5rem;
   overflow-x: hidden;
 }
-.profile .content{
-  position: relative;
-  background: var(--White-color);
-  width: 100%;
-  border-radius: var(--Primary-radius);
-  min-height: calc(100vh - 5rem);
-  padding-bottom: 1rem;
-}
 .profile .content .heading{
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   width: 65%;
   display: flex;
   align-items: center;
@@ -1948,7 +1939,6 @@ aside ul li .languages a{
   height: 100%;
   border-radius: 50%;
 }
-/*
 .profile .content .heading .avatar .half-circle{
   position: absolute;
   top: 0;
@@ -1970,7 +1960,6 @@ aside ul li .languages a{
   border-bottom-color: transparent;
   border-right-color: transparent;
 }
-*/
 .profile .content .heading .btns .bt{
   margin: .35rem 0;
   min-width: 90px;
@@ -2074,13 +2063,8 @@ aside ul li .languages a{
   border-radius: var(--Primary-radius);
   margin: 1rem 0;
 }
-.profile .content .user-psts{
-  padding: 0 260px;
-}
 .profile .content .info{
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   width: 65%;
   padding: 1rem 0;
   border-radius: var(--Radius-xs);
@@ -2132,8 +2116,6 @@ aside ul li .languages a{
 }
 .profile .content .rank{
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   margin: 2rem 0;
   width: 65%;
 }
@@ -2774,9 +2756,6 @@ aside ul li .languages a{
   aside .toggle{
       display: block;
   }
-  .dash .content{
-      padding: 0;
-  }
 }
 @media (max-width: 1056px) {
   .profile .content .heading .avatar{
@@ -2793,9 +2772,6 @@ aside ul li .languages a{
   .profile .content .heading .btns .follow,
   .profile .content .heading .btns .edit{
       margin: 0 1rem;
-  }
-  .profile .content .user-psts{
-      padding: 0;
   }
   .edit-profile .content .inner{
       padding: 0;
