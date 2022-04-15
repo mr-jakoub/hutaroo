@@ -376,7 +376,7 @@ textarea.input-item{
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  margin-left: 1rem;
+  margin-left: .3rem;
 }
 .navbar .dashboard li.user a{
   padding: 0 .2rem;
@@ -1171,12 +1171,17 @@ aside ul li .languages a{
   position: relative;
   width: 100%;
   border-radius: var(--Primary-radius);
-  padding: 3.5rem 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 5rem);
+}
+.dash .content .welcomes{
+  position: relative;
+  text-align: left;
+  margin-bottom: 1rem;
+  width: 600px;
 }
 .dash .content .rises{
   position: relative;
@@ -1301,6 +1306,8 @@ aside ul li .languages a{
 /* New oproto */
 .dash .content .oproto{
   position: relative;
+  margin-bottom: 1rem;
+  width: 600px;
 }
 .dash .content .oproto .avatar{
   position: absolute;
@@ -1322,6 +1329,7 @@ aside ul li .languages a{
   width: 100%;
   box-shadow: var(--box-shadow2);
   border-radius: var(--Radius-xs);
+  background: var(--White-color);
   padding: 1.2rem;
   z-index: 9;
 }
@@ -1459,6 +1467,7 @@ aside ul li .languages a{
   min-height: 100%;
   width: 600px;
   padding: 0 1px;
+  z-index: 1;
 }
 .content .posts .post{
   position: relative;
@@ -1476,6 +1485,29 @@ aside ul li .languages a{
   background: var(--White-color);
   box-shadow: var(--box-shadow2);
   padding-top: .5rem;
+}
+.content .posts .post:hover > .kipper{
+  animation: hinge 2s 1s ease-in-out alternate forwards;
+  transform-origin: top left;
+}
+@keyframes hinge{
+	0%{
+    transform: rotate(0);
+  }
+	20%,60%{
+    transform: rotate(80deg);
+  }	
+	40%{
+    transform: rotate(50deg);
+  }	
+	80%{
+    transform: rotate(50deg) translateY(0);
+    opacity: 1;
+  }	
+	100% {
+    transform: translateY(700px);
+    opacity: 0;
+  }
 }
 .content .posts .behind-post{
   position: absolute;
@@ -1939,7 +1971,7 @@ aside ul li .languages a{
   height: 100%;
   border-radius: 50%;
 }
-.profile .content .heading .avatar .half-circle{
+/* .profile .content .heading .avatar .half-circle{
   position: absolute;
   top: 0;
   left: 0;
@@ -1959,7 +1991,7 @@ aside ul li .languages a{
   border-top-color: transparent;
   border-bottom-color: transparent;
   border-right-color: transparent;
-}
+} */
 .profile .content .heading .btns .bt{
   margin: .35rem 0;
   min-width: 90px;

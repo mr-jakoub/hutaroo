@@ -9,7 +9,7 @@ connectDB()
 // Init Middleware /* to allow req.body */
 app.use(express.json({extended: false}))
 // Upload files
-app.use(fileUpload({ createParentPath: true }))
+app.use(fileUpload({ createParentPath: true }))//1mb
 
 app.get('/', (req, res)=> res.send('API Running'))
 

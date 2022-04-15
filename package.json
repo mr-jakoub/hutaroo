@@ -1,5 +1,5 @@
 {
-  "name": "hutaro",
+  "name": "hutaroo",
   "version": "1.0.0",
   "description": "Connect the teacher and his students, giving the opportunity to share new ideas.",
   "main": "server.js",
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "opinions",
-    "hutaro"
+    "hutaroo"
   ],
   "author": "yaakoub ourghi",
   "license": "MIT",

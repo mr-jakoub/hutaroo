@@ -309,6 +309,9 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
             </div>
             <div className="dash">
                 <div className="content">
+                    <div className="welcomes">
+                        <p className="text-bold text-sm">Have a nice day !</p>
+                    </div>
                     <div className="row">
                         <div className="col-md-7 my-2">
                             <div className="user-ident blured-background">
@@ -337,7 +340,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                             </div>
                         </div>
                     </div><br/>
-                    <div className="my-4">
+                    <div className="my-2">
                         {!match.params.new ? (
                         <div className="oproto mx-2">
                             <h3 className="text-sm svg-icon text-bold">New Opinion&nbsp;&nbsp;
