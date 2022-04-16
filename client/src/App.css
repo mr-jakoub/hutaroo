@@ -6,9 +6,9 @@
 :root{
   
   /* Colors */
-  --White-color: #f5f5f5;
-  --Light-color: #e7e7e7;
-  --Light-color1: #eeeeee;
+  --White-color: #ffffff;
+  --White-color-secondary: #f0f2f5;
+  --Light-color: #f0f2f5;
   --Dark-color: #242526;
   --Grey-color: #808388;
   --Smooth-Back: rgba(0,0,0,.07);
@@ -1181,7 +1181,7 @@ aside ul li .languages a{
   position: relative;
   text-align: left;
   margin-bottom: 1rem;
-  width: 600px;
+  width: 500px;
 }
 .dash .content .rises{
   position: relative;
@@ -1307,7 +1307,7 @@ aside ul li .languages a{
 .dash .content .oproto{
   position: relative;
   margin-bottom: 1rem;
-  width: 600px;
+  width: 500px;
 }
 .dash .content .oproto .avatar{
   position: absolute;
@@ -1440,11 +1440,11 @@ aside ul li .languages a{
 
 /* Posts */
 .content .header{
-  position: relative;
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
-  width: 600px;
+  width: 500px;
 }
 .content .filters button{
   font-size: .85rem;
@@ -1465,15 +1465,15 @@ aside ul li .languages a{
   flex-direction: column;
   align-items: center;
   min-height: 100%;
-  width: 600px;
+  width: 500px;
   padding: 0 1px;
-  z-index: 1;
+  padding-bottom: 2rem;
 }
 .content .posts .post{
   position: relative;
   transform-origin: top;
-  min-height: 50px;
-  width: 600px;
+  min-height: 80px;
+  width: 500px;
   margin: .75rem 0;
   border-radius: var(--Radius-xs);
 }
@@ -1483,7 +1483,7 @@ aside ul li .languages a{
   height: 100%;
   border-radius: var(--Radius-xs);
   background: var(--White-color);
-  box-shadow: var(--box-shadow2);
+  box-shadow: var(--box-shadow);
   padding-top: .5rem;
 }
 .content .posts .post:hover > .kipper{
@@ -1516,8 +1516,6 @@ aside ul li .languages a{
   width: 100%;
   height: 100%;
   border-radius: var(--Radius-xs);
-  box-shadow: var(--box-shadow2);
-  z-index: -1;
 }
 .content .posts .behind-post::before{
   content: '';
@@ -1531,7 +1529,6 @@ aside ul li .languages a{
               linear-gradient(var(--Grey-color) 50%, transparent 0%) right/1px 20px repeat-y,
               linear-gradient(to right, var(--Grey-color) 50%, transparent 0%) bottom/20px 1px repeat-x,
               linear-gradient(var(--Grey-color) 50%, transparent 0%) left/1px 20px repeat-y;
-  z-index: 99;
 }
 /* Inner */
 .content .posts .post .inner{
@@ -1636,6 +1633,7 @@ aside ul li .languages a{
 .content .posts .post .dropdown span svg{
   width: 20px;
   height: 20px;
+  fill: var(--Grey-color);
 }
 .content .posts .post .dropdown p{
   padding: 0 .35rem;
@@ -1762,8 +1760,8 @@ aside ul li .languages a{
   margin-right: .25rem;
 }
 .content .posts .post .nmbrs svg{
-  height: 13px;
-  width: 13px;
+  height: 15px;
+  width: 15px;
   fill: white;
 }
 .content .post .footer{
@@ -1833,8 +1831,8 @@ aside ul li .languages a{
 .content .posts .post .comments .comments-form .form-content .form-item.form-input{
   flex-grow: 2;
   margin: 0 .3rem;
-  background: var(--Light-color);
-  border-radius: var(--Radius-sm);
+  background: var(--White-color-secondary);
+  border-radius: var(--Radius-xs);
 }
 .content .posts .post .comments .comments-form .form-content .form-input textarea{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1879,7 +1877,7 @@ aside ul li .languages a{
   background: var(--White-color);
 }
 .content .posts .post .comments .comments-card .comment{
-  background: var(--Light-color);
+  background: var(--White-color-secondary);
   padding: .4rem;
   border-radius: var(--Radius-sm);
   width: 100%;
@@ -1914,7 +1912,7 @@ aside ul li .languages a{
 .content .posts .post .comments .comments-card .footer .head .cmntsnbr{
   margin-top: .225rem;
   border-radius: 25px;
-  background: var(--Light-color);
+  background: var(--White-color-secondary);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -2753,7 +2751,10 @@ aside ul li .languages a{
       font-size: .85rem;
       padding: 0 1rem;
   }
-  .content .posts .post{
+  .content .posts .post,
+  .dash .content .welcomes,
+  .dash .content .oproto,
+  .content .header{
     width: 450px;
   }
   .content .posts .post .avatar{
@@ -2816,7 +2817,10 @@ aside ul li .languages a{
   }
 }
 @media (max-width: 471px) {
-  .content .posts .post{
+  .content .posts .post,
+  .dash .content .welcomes,
+  .dash .content .oproto,
+  .content .header{
     width: 350px;
   }
   .content .posts .post .inner .head .user-feeling{

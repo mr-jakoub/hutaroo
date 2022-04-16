@@ -343,7 +343,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                     <div className="my-2">
                         {!match.params.new ? (
                         <div className="oproto mx-2">
-                            <h3 className="text-sm svg-icon text-bold">New Opinion&nbsp;&nbsp;
+                            <p className="text-sm svg-icon text-bold my-3">New Opinion&nbsp;&nbsp;
                                 <svg viewBox="0 0 512 512">
                                     <g>
                                         <g>
@@ -354,7 +354,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                                         </g>
                                     </g>
                                 </svg>
-                            </h3>
+                            </p>
                             <form onSubmit={e =>onSubmit(e)} className="box">
                                 {user &&
                                 <div className="avatar">
@@ -504,7 +504,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                         </div>
                         ): match.params.new === "room"?(
                             <div className="oproto mx-2">
-                                <h3 className="text-sm svg-icon text-bold">New Room&nbsp;&nbsp;
+                                <h3 className="text-sm svg-icon text-bold my-3">New Room&nbsp;&nbsp;
                                     <svg viewBox="0 0 512 512">
                                         <g>
                                             <g>
@@ -519,7 +519,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                             </div>
                         ): match.params.new === "todo" && (
                             <div className="oproto mx-2">
-                                <h3 className="text-sm svg-icon text-bold">Todo&nbsp;&nbsp;
+                                <h3 className="text-sm svg-icon text-bold my-3">Todo&nbsp;&nbsp;
                                     <svg viewBox="0 0 512 512">
                                         <g>
                                             <g>
@@ -535,24 +535,6 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                         )}
                     </div>
                     <div className="my-3">
-                        <div className="header">
-                            <p className="text-sm svg-icon text-bold">Posts&nbsp;&nbsp;
-                                <svg viewBox="0 0 512 512">
-                                    <g>
-                                        <g>
-                                            <path d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792
-                                                H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083
-                                                c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z
-                                                "/>
-                                        </g>
-                                    </g>
-                                </svg>
-                            </p>
-                            <div className="filters">
-                                <button className="text-bold btn active">Opinions</button>
-                                <button className="text-bold btn">Rooms</button>
-                            </div>
-                        </div>
                         <Posts />
                     </div>
                 </div>

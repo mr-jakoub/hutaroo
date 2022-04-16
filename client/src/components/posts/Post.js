@@ -251,7 +251,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                     </div>
                     <div>
                     {commentsLength > 0 &&
-                        <span style={{background: "var(--Light-color)",margin: "0",marginRight: ".25rem"}} className='underline svg-icon'>
+                        <span style={{margin: "0",marginRight: ".25rem"}} className='underline svg-icon'>
                             <svg viewBox="0 0 60 60">
                                 <g>
                                     <path fill='var(--Dark-color)' d="M27.885,5.007C20.06,5.915,12.843,10.774,9.05,17.688c-0.266,0.484-0.088,1.092,0.396,1.358
@@ -270,7 +270,7 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                             {commentsLength === 0?'':commentsLength}
                         </span>
                         {commentsLength > 0 &&
-                        <span style={{background: "var(--Light-color)",margin: "0",marginRight: ".25rem"}} className='underline svg-icon'>
+                        <span style={{margin: "0",marginRight: ".25rem"}} className='underline svg-icon'>
                             <svg viewBox="0 0 512.001 512.001">
                                 <g>
                                     <g>
@@ -398,7 +398,6 @@ const Post = ({post, addComment, comments, auth:{ user }, profilePosts, deletePo
                     }
                 </div>
             </div>
-            
         </div>
     )
 }
