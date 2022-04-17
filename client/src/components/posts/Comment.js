@@ -143,7 +143,7 @@ const Comment = ({ auth, deleteComment, addCommentLike, addCommentDislike, postO
                             </div>
                             <div className="footer">
                                 <div className="head">
-                                    <div className="like react">
+                                    <div className="like reagir">
                                         <span className="underline" style={likedComment ? {color:'var(--Primary-color)'}:{color:'var(--Grey-color)'}} onClick={()=>addCommentLike(_id)}>Well said</span>
                                         <span className="underline mlt" style={dislikedComment ? {color:'var(--Primary-color)'}:{color:'var(--Grey-color)'}} onClick={()=>addCommentDislike(_id)}>Badly said</span>
                                         <span className="date underline mlt" title={date}>{sinceDate(date)}</span>

@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 :root{
   
@@ -31,29 +31,29 @@
   --white-shadow:rgba(255,255,255,.4);
   --box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15), 0 1px 2px 0 rgba(60,64,67,0.3);
   --box-shadow2: 0 0 2px rgba(0,0,0,.12),
-                0 0 2px rgba(0,0,0,.15);
+                0 0 2px rgba(0,0,0,.15)
 }
 
 /* Fonts */
 @font-face{
   font-family: Gilroy;
   src: url("./assets/Gilroy-Light.otf");
-  font-display: swap;
+  font-display: swap
 }
 @font-face{
   font-family: Chapaza;
   src: url("./assets/Chapaza.ttf");
-  font-display: swap;
+  font-display: swap
 }
 /* Scroll bar */
 ::-webkit-scrollbar{
   width: 5px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px)
 }
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(to bottom ,var(--White-color), var(--Primary-color) , var(--White-color));
   height: 40%;
-  border-radius: 120px;
+  border-radius: 120px
 }
 
 /* Global */
@@ -62,27 +62,27 @@ body{
   font-size: 1rem;
   line-height: 1.6;
   background-color: var(--White-color);
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 a{
   text-decoration: none;
   user-select: none;
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 a:hover{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .hash-tag{
   position: relative;
   color: var(--Primary-color) !important;
   font-size: 1rem !important;
-  font-weight: bolder !important;
+  font-weight: bolder !important
 }
 ul{
-  list-style: none;
+  list-style: none
 }
 img{
-  width: 100%;
+  width: 100%
 }
 .line{
   position: relative;
@@ -91,7 +91,7 @@ img{
   margin: .35rem 0;
   height: 1.05px;
   border-radius: 50px;
-  box-shadow: inset 0 0 2px var(--shadow-sm);
+  box-shadow: inset 0 0 2px var(--shadow-sm)
 }
 .half-line{
   position: relative;
@@ -99,47 +99,47 @@ img{
   margin: .35rem 0;
   height: 1.05px;
   border-radius: 50px;
-  box-shadow: inset 0 0 2px var(--shadow-sm);
+  box-shadow: inset 0 0 2px var(--shadow-sm)
 }
 .hl-left{ left: 0; }
 .hl-right{ right: 0; }
 svg{
   width: 25px;
   height: 25px;
-  fill: var(--Dark-color);
+  fill: var(--Dark-color)
 }
 .svg-icon{
   display: inline-flex;
   align-items: center;
-  font-weight: 500;
+  font-weight: 500
 }
 .readMore{
   color: var(--Grey-color) !important;
   font-size: .8rem !important;
-  cursor: pointer;
+  cursor: pointer
 }
 .underline:hover{
   text-decoration: underline;
-  cursor: pointer;
+  cursor: pointer
 }
 svg.gooey{
-  display: none;
+  display: none
 }
 ::placeholder,
 input[type=date]::-webkit-datetime-edit{
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 a:not(.logo):hover{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .logo{
-  font-weight: 300;
+  font-weight: 300
 }
 .SEC-title{
   position: relative;
   display: inline-block;
   font-weight: 200;
-  margin-bottom: 3rem;
+  margin-bottom: 3rem
 }
 .SEC-title span{
   position: absolute;
@@ -148,13 +148,13 @@ a:not(.logo):hover{
   height: 2px;
   border-radius: var(--Primary-radius);
   width: 50%;
-  background: var(--Dark-color);
+  background: var(--Dark-color)
 }
 .text-bold{
-  font-weight: bolder;
+  font-weight: bolder
 }
 .hidden-scroll::-webkit-scrollbar{
-  width: 0;
+  width: 0
 }
 
 /* Shapes */
@@ -167,7 +167,7 @@ a:not(.logo):hover{
   filter: blur(.5px);
   user-select: none;
   pointer-events: none;
-  z-index: 100;
+  z-index: 100
 }
 
   /* Home Shapes */
@@ -186,16 +186,16 @@ a:not(.logo):hover{
 .inline{
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: row;
+  flex-direction: row
 }
 .radius-sm{
-  border-radius: var(--Radius-sm);
+  border-radius: var(--Radius-sm)
 }
 .spinner{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%)
 }
 .alerts{
   position: fixed;
@@ -206,10 +206,10 @@ a:not(.logo):hover{
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100%
 }
 .alerts .alert{
-  margin: .65rem 0;
+  margin: .65rem 0
 }
 .alerts .alert p{
   position: relative;
@@ -221,27 +221,27 @@ a:not(.logo):hover{
   border-radius: var(--Radius-xs);
 
   font-weight: bold;
-  cursor: pointer;
+  cursor: pointer
 }
 .alert-success p{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .alert-danger p{
-  color: var(--Danger-color);
+  color: var(--Danger-color)
 }
 .text-center{
-  text-align: center;
+  text-align: center
 }
 .text-primary{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 nav ul{
-  display: flex;
+  display: flex
 }
 .lead{
   font-size: 1rem;
   color: var(--Grey-color);
-  font-weight: 500;
+  font-weight: 500
 }
 .btn{
   display: inline-block;
@@ -251,24 +251,24 @@ nav ul{
   font-size: 1rem;
   cursor: pointer;
   border: none;
-  outline: none;
+  outline: none
 }
 .btn-primary{
 background: var(--Primary-color);
 color: var(--White-color);
 border-radius: var(--Radius-xs);
 font-size: 1.1rem;
-font-weight: 300;
+font-weight: 300
 }
 .btn-dark{
   background: var(--Dark-color);
-  color: var(--White-color);
+  color: var(--White-color)
 }
 .btn-glob{
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .primary-color{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .blured-background::before{
   content: '';
@@ -278,7 +278,7 @@ font-weight: 300;
   width: 100%;
   height: 100%;
   backdrop-filter: blur(10px);
-  z-index: -1;
+  z-index: -1
 }
 .input-item{
   outline: none;
@@ -291,56 +291,56 @@ font-weight: 300;
   padding: 0.6rem 1rem;
   font-size: .9rem;
   margin: 1rem 0;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 textarea.input-item{
-  resize: none;
+  resize: none
 }
 
 /* Margin */
 .my{
-  margin: 0.5rem 0;
+  margin: 0.5rem 0
 }
 .my-1{
-  margin: 1rem 0;
+  margin: 1rem 0
 }
 .my-2{
-  margin: 2rem 0;
+  margin: 2rem 0
 }
 .my-3{
-  margin: 3rem 0;
+  margin: 3rem 0
 }
 .my-4{
-  margin: 4rem 0;
+  margin: 4rem 0
 }
 .my-5{
-  margin: 5rem 0;
+  margin: 5rem 0
 }
 .mx-1{
-  margin: 0 1rem;
+  margin: 0 1rem
 }
 .mx-2{
-  margin: 0 2rem;
+  margin: 0 2rem
 }
 
 /* Sizes */
 .text-x-large{
-  font-size: 4rem;
+  font-size: 4rem
 }
 .text-large{
-  font-size: 3rem;
+  font-size: 3rem
 }
 .text-md{
-  font-size: 2.5em;
+  font-size: 2.5em
 }
 .text-sm{
-  font-size: 1.3rem;
+  font-size: 1.3rem
 }
 .text-xs{
-  font-size: 1.2rem;
+  font-size: 1.2rem
 }
 .text-xxs{
-  font-size: 1rem;
+  font-size: 1rem
 }
 
 /* Navbar */
@@ -354,21 +354,21 @@ textarea.input-item{
   flex-wrap: nowrap;
   align-items: center;
   padding: 0rem 2rem;
-  z-index: 999;
+  z-index: 999
 }
 .navbar a{
   color: var(--Dark-color);
   padding: 2rem .5rem;
-  margin: 0 0.35rem;
+  margin: 0 0.35rem
 }
 
 /* For Dashboard */
 .navbar .dashboard li{
-  margin: 0 1rem;
+  margin: 0 1rem
 }
 .navbar .dashboard li.user{
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 .navbar .dashboard li.user .info{
   position: relative;
@@ -376,23 +376,23 @@ textarea.input-item{
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  margin-left: .3rem;
+  margin-left: .3rem
 }
 .navbar .dashboard li.user a{
-  padding: 0 .2rem;
+  padding: 0 .2rem
 }
 .navbar .dashboard li.user .username{
   font-size: 1.1rem;
-  text-align: left;
+  text-align: left
 }
 .navbar .dashboard li.user .info span{
   padding: .05rem .5rem;
   color: var(--Grey-color);
   letter-spacing: 2px;
-  font-weight: bold;
+  font-weight: bold
 }
 .navbar .dashboard li.user .info span svg{
-  margin-right: .5rem;
+  margin-right: .5rem
 }
 .navbar .dashboard li.user .avatar{
   position: relative;
@@ -401,7 +401,7 @@ textarea.input-item{
   width: 47px;
   height: 47px;
   border-radius: 50%;
-  overflow: hidden;
+  overflow: hidden
 }
 .navbar .dashboard li.user .avatar img{
   position: absolute;
@@ -409,15 +409,15 @@ textarea.input-item{
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover
 }
 .navbar .dashboard .notification{
   position: relative;
-  z-index: 101;
+  z-index: 101
 }
 .navbar .dashboard .notification svg{
   stroke: var(--Dark-color);
-  fill: none;
+  fill: none
 }
 .navbar .dashboard .notification .notifs{
   position: absolute;
@@ -432,10 +432,10 @@ textarea.input-item{
   height: 60vh;
   overflow: hidden;
   overflow-y: scroll;
-  display: none;
+  display: none
 }
 .navbar .dashboard .notification .notifs.show{
-  display: block;
+  display: block
 }
 .navbar .dashboard .notification .notif{
   position: relative;
@@ -444,33 +444,33 @@ textarea.input-item{
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  cursor: pointer;
+  cursor: pointer
 }
 .navbar .dashboard .notification .notif a{
   padding: 0;
   width: 100%;
   height: 100%;
-  margin: .35rem 0;
+  margin: .35rem 0
 }
 .navbar .dashboard .notification .notif a:visited{
-  background: var(--Light-color);
+  background: var(--Light-color)
 }
 .navbar .dashboard .notification .notif .inner{
   position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 .navbar .dashboard .notification .notif .inner .username{
   font-size: 1.05rem;
-  padding: 0 .35rem;
+  padding: 0 .35rem
 }
 .navbar .dashboard .notification .notif .inner .username,
 .navbar .dashboard .notification .notif .inner .date{
-  line-height: 50px;
+  line-height: 50px
 }
 .navbar .dashboard .notification .notif .inner .date{
   font-size: .7rem;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .navbar .dashboard .notification .notif .inner p{
   font-size: .9rem;
@@ -478,7 +478,7 @@ textarea.input-item{
   font-weight: 900;
   padding: .5rem .35rem;
   letter-spacing: 1px;
-  text-align: left;
+  text-align: left
 }
 .navbar .dashboard .notification .notifs .avatar{
   position: relative;
@@ -486,7 +486,7 @@ textarea.input-item{
   height: 50px;
   border-radius: 50%;
   box-shadow: 2px 2px 10px rgba(0,0,0,.12);
-  margin: 0 .35rem;
+  margin: 0 .35rem
 }
 .navbar .dashboard .notification .notifs .avatar img{
   position: absolute;
@@ -497,18 +497,18 @@ textarea.input-item{
   border-radius: 50%;
   margin-bottom: 50px;
   object-fit: cover;
-  z-index: 1;
+  z-index: 1
 }
 .navbar .dashboard .notification p{
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  user-select: none;
+  user-select: none
 }
 .navbar .dashboard .notification svg{
   width: 26px;
-  height: 26px;
+  height: 26px
 }
 .navbar .dashboard .notification .nbr{
   position: absolute;
@@ -524,7 +524,7 @@ textarea.input-item{
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center
 }
 .navbar .search{
   position: absolute;
@@ -532,14 +532,14 @@ textarea.input-item{
   left: 50%;
   transform: translate(-60%,-50%);
   width: 320px;
-  z-index: 99;
+  z-index: 99
 }
 .navbar .search input{
   padding: .4rem 0;
   padding-left: 2.2rem;
   border-radius: var(--Primary-radius);
   font-size: 1.05rem;
-  width: 100%;
+  width: 100%
 }
 .navbar .search svg{
   position: absolute;
@@ -547,7 +547,7 @@ textarea.input-item{
   width: 20px;
   height: 20px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%)
 }
 
 /* Navbar Bottom */
@@ -563,7 +563,7 @@ textarea.input-item{
   background: transparent;
   border-radius: var(--Primary-radius);
   overflow: hidden;
-  z-index: 99;
+  z-index: 99
 }
 .navbar-bottom a,.navbar-bottom .theme_handel{
   position: relative;
@@ -573,7 +573,7 @@ textarea.input-item{
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: pointer
 }
 .navbar-bottom a::before,
 .navbar-bottom .theme_handel::before{
@@ -586,13 +586,13 @@ textarea.input-item{
   border-radius: var(--Radius-sm);
   transition: var(--Transition1);
   background: transparent;
-  z-index: -1;
+  z-index: -1
 }
 .navbar-bottom a:hover::before,
 .navbar-bottom a.active::before,
 .navbar-bottom .theme_handel:hover::before,
 .navbar-bottom .theme_handel.active::before{
-  background: var(--Dark-color);
+  background: var(--Dark-color)
 }
 .navbar-bottom a:hover svg,
 .navbar-bottom a.active svg,
@@ -600,13 +600,13 @@ textarea.input-item{
 .navbar-bottom .theme_handel.active svg{
   fill: var(--White-color);
   width: 26px;
-  height: 26px;
+  height: 26px
 }
 /* Landing */
 .landing{
   position: relative;
   top: 4.2rem;
-  background: var(--White-color);
+  background: var(--White-color)
 }
 
 /* Home */
@@ -616,25 +616,25 @@ textarea.input-item{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  z-index: 4;
+  z-index: 4
 }
 .landing .home h1{
-  font-weight: 200;
+  font-weight: 200
 }
 .landing .home p{
-  max-width: 90%;
+  max-width: 90%
 }
 .landing .home .button{
-  margin-top: 5rem;
+  margin-top: 5rem
 }
 .landing .home .button a:hover svg{
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 .landing .home .right-sec{
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end
 }
 .landing .home .new-users{
   position: relative;
@@ -645,7 +645,7 @@ textarea.input-item{
   justify-content: center;
   align-items: center;
   border: 1px solid var(--Light-color);
-  background: var(--White-color);
+  background: var(--White-color)
 }
 .landing .home .new-users .outer{
   position: absolute;
@@ -656,7 +656,7 @@ textarea.input-item{
   border-radius: 50%;
   width: 75%;
   height: 75%;
-  z-index: 1;
+  z-index: 1
 }
 .landing .home .new-users .outer span{
   position: absolute;
@@ -665,7 +665,7 @@ textarea.input-item{
   transform: translate(-40%);
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .landing .home .right-sec .new-users .title{
   position: relative;
@@ -678,7 +678,7 @@ textarea.input-item{
   align-items: center;
   width: 50%;
   height: 50%;
-  z-index: 2;
+  z-index: 2
 }
 .landing .home .new-users .title span{
   position: absolute;
@@ -687,7 +687,7 @@ textarea.input-item{
   transform: translate(-50%);
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .landing .home .new-users .border span:nth-child(1){
   position: absolute;
@@ -696,7 +696,7 @@ textarea.input-item{
   transform: translateX(50%);
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .landing .home .new-users .border span:nth-child(2){
   position: absolute;
@@ -705,7 +705,7 @@ textarea.input-item{
   transform: translateX(100%);
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .landing .home .new-users .border span:nth-child(3){
   position: absolute;
@@ -714,7 +714,7 @@ textarea.input-item{
   transform: translateX(100%);
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .landing .home .new-users .border span:nth-child(4){
   position: absolute;
@@ -723,11 +723,11 @@ textarea.input-item{
   transform: translateX(50%);
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .landing .home .new-users span{
   overflow: hidden;
-  background: transparent;
+  background: transparent
 }
 .landing .home .new-users span img{
   position: absolute;
@@ -735,112 +735,112 @@ textarea.input-item{
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover
 }
 
 /* Services */
 .landing .services{
   position: relative;
-  padding: 2rem 0;
+  padding: 2rem 0
 }
 .landing .services .cards{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center
 }
 .landing .services .card > div{
   padding: 0.65rem 1rem 1.5rem 1rem;
   min-height: 100%;
   width: 90%;
   box-shadow: 0 0 100px rgba(0,0,0,.08);
-  border-radius: var(--Radius-sm);
+  border-radius: var(--Radius-sm)
 }
 .landing .services .card > div p{
-  text-align: left;
+  text-align: left
 }
 .landing .services .sperate{
-  border-right: 1px solid var(--Dark-color);
+  border-right: 1px solid var(--Dark-color)
 }
 .landing .services .card > div h3 svg{
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 .landing .services .join p span{
-  font-weight: bolder;
+  font-weight: bolder
 }
 
 /* Testimonial */
 .landing .testimonial{
-  position: relative;
+  position: relative
 }
 .landing .testimonial .cards{
   position: relative;
-  z-index: 1;
+  z-index: 1
 }
 .landing .testimonial .card{
   min-height: 100%;
-  margin: 2rem 0;
+  margin: 2rem 0
 }
 .landing .testimonial .card .avatar ~ p{
   font-weight: bolder;
   color: var(--White-color);
   background: var(--Dark-color);
-  max-width: 100%;
+  max-width: 100%
 }
 .landing .testimonial .card .avatar{
   position: relative;
   width: 100%;
   height: 50%;
   border-radius: var(--Primary-radius);
-  overflow: hidden;
+  overflow: hidden
 }
 .landing .testimonial .card .avatar > img{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%
 }
 .landing .testimonial .card .stars{
-  margin: 0 auto;
+  margin: 0 auto
 }
 .landing .testimonial .card .stars svg{
   width: 20px;
   height: 20px;
   fill: gold;
-  margin: 0 .25rem;
+  margin: 0 .25rem
 }
 .landing .testimonial .card .opinion{
   font-size: 0.9rem;
   text-align: justify;
   font-weight: 300;
   color: var(--Grey-color);
-  max-width: 90%;
+  max-width: 90%
 }
 .landing .testimonial .card .university{
   font-size: .85rem;
   text-align: center;
   color: var(--Grey-color);
   font-weight: bolder;
-  padding: 1rem;
+  padding: 1rem
 }
 
 /* Contact Us */
 .landing .contact{
-  position: relative;
+  position: relative
 }
 .landing .contact input,
 .landing .contact textarea{
-  margin: 0;
+  margin: 0
 }
 .landing .contact .info{
-  margin: 1rem 0;
+  margin: 1rem 0
 }
 .landing .contact a svg{
   width: 20px;
-  height: 20px;
+  height: 20px
 }
 .landing .contact a:hover svg{
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 .landing .contact .INF-SEC::before{
   content: '';
@@ -850,36 +850,36 @@ textarea.input-item{
   width: 100%;
   height: 100%;
   background: #21aad1;
-  z-index: -1;
+  z-index: -1
 }
 
 /* Footer */
 .landing footer{
   position: relative;
-  padding-bottom: 4rem;
+  padding-bottom: 4rem
 }
 .landing footer .links svg{
   width: 15px;
-  height: 15px;
+  height: 15px
 }
 .landing footer .SVG-container:hover > svg{
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 .landing footer .links p:hover{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .landing footer .links p{
   cursor: pointer;
   display: inline-block;
-  margin: .80rem 0;
+  margin: .80rem 0
 }
 .landing footer .languages{
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 .landing footer .languages a{
   display: inline;
-  margin: .20rem 0;
+  margin: .20rem 0
 }
 .landing footer .social a{
   position: relative;
@@ -888,7 +888,7 @@ textarea.input-item{
   margin: 2rem .75rem;
   border-radius: 50%;
   background: var(--Dark-color);
-  cursor: pointer;
+  cursor: pointer
 }
 .landing footer .social a svg{
   position: absolute;
@@ -896,19 +896,19 @@ textarea.input-item{
   left: 50%;
   transform: translate(-50%,-50%);
   width: 18px;
-  height: 18px;
+  height: 18px
 }
 .landing footer .social a:nth-child(1){
-  background: #4267b2;
+  background: #4267b2
 }
 .landing footer .social a:nth-child(2){
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)
 }
 .landing footer .social a:nth-child(3){
-  background: #0e76a8;
+  background: #0e76a8
 }
 .landing footer .social a:nth-child(4){
-  background: var(--Dark-color);
+  background: var(--Dark-color)
 }
 
 /* Side bar */
@@ -923,17 +923,17 @@ aside{
   transition: .5s;
   padding: .5rem 0;
   margin-top: 4rem;
-  z-index: 5;
+  z-index: 5
 }
 aside.show{
-  width: 250px;
+  width: 250px
 }
 aside .inner{
   position: relative;
   margin-top: 2rem;
   min-height: 100%;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: scroll
 }
 aside .toggle{
   display: none;
@@ -946,41 +946,41 @@ aside .toggle{
   padding: .3rem;
   width: 30px;
   height: 30px;
-  cursor: pointer;
+  cursor: pointer
 }
 aside .toggle svg{
   width: 100%;
   height: 100%;
   fill: var(--White-color);
-  transform: rotate(-90deg);
+  transform: rotate(-90deg)
 }
 aside .toggle.show svg{
-  transform: rotate(90deg);
+  transform: rotate(90deg)
 }
 aside ul{
-  position: relative;
+  position: relative
 }
 aside ul li{
   position: relative;
   width: 100%;
   padding: 0.2rem 0;
-  border-left: 4px solid transparent;
+  border-left: 4px solid transparent
 }
 aside ul li.active{
   background: var(--Light-color);
   width: 102%;
-  border-left: 4px solid var(--Primary-color);
+  border-left: 4px solid var(--Primary-color)
 }
 aside ul li.active > .svg-icon{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 aside ul li.active > .svg-icon .icon svg,
 aside ul li:hover > .svg-icon .icon svg{
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 aside ul li.active > .svg-icon .title,
 aside ul li:hover > .svg-icon .title{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 aside ul li > .svg-icon{
   position: relative;
@@ -988,12 +988,12 @@ aside ul li > .svg-icon{
   display: flex;
   color: var(--Dark-color);
   font-weight: bolder;
-  font-size: 1rem;
+  font-size: 1rem
 }
 aside ul li > .sperate{
   height: 40px;
   padding-left: 2rem;
-  line-height: 50px;
+  line-height: 50px
 }
 aside ul li > .svg-icon .icon{
   position: relative;
@@ -1002,11 +1002,11 @@ aside ul li > .svg-icon .icon{
   padding-left: 2rem;
   line-height: 50px;
   text-align: center;
-  display: block;
+  display: block
 }
 aside ul li > .svg-icon .icon svg{
   width: 20px;
-  height: 20px;
+  height: 20px
 }
 aside ul li > .svg-icon .title{
   position: relative;
@@ -1014,15 +1014,15 @@ aside ul li > .svg-icon .title{
   padding-left: 2rem;
   height: 40px;
   line-height: 40px;
-  white-space: normal;
+  white-space: normal
 }
 aside ul li .languages{
   display: flex;
   flex-direction: column;
-  padding-left: 5rem;
+  padding-left: 5rem
 }
 aside ul li .languages a{
-  padding: 0.2rem 0.45rem;
+  padding: 0.2rem 0.45rem
 }
 
 /* Right sidebar */
@@ -1035,10 +1035,10 @@ aside ul li .languages a{
   height: 100vh;
   padding: .5rem 0;
   margin-top: 4rem;
-  z-index: 5;
+  z-index: 5
 }
 .right-sidebar.show{
-  width: 250px;
+  width: 250px
 }
 .right-sidebar .toggle{
   display: none;
@@ -1051,44 +1051,44 @@ aside ul li .languages a{
   padding: .3rem;
   width: 30px;
   height: 30px;
-  cursor: pointer;
+  cursor: pointer
 }
 .right-sidebar .toggle svg{
   width: 100%;
   height: 100%;
   fill: var(--White-color);
-  transform: rotate(90deg);
+  transform: rotate(90deg)
 }
 .right-sidebar .toggle.show svg{
-  transform: rotate(-90deg);
+  transform: rotate(-90deg)
 }
 .right-sidebar .inner{
   position: relative;
   margin-top: 2rem;
   min-height: 100%;
-  overflow-y: scroll;
+  overflow-y: scroll
 }
 .right-sidebar .inner::-webkit-scrollbar{
-  width: 0;
+  width: 0
 }
 .right-sidebar .inner .daily-tasks h3{
   position: relative;
-  font-size: 1.3rem;
+  font-size: 1.3rem
 }
 .right-sidebar ul{
-  padding: .3rem;
+  padding: .3rem
 }
 .right-sidebar ul li{
   position: relative;
   margin: 1.5rem 0;
   padding: .8rem 0;
   box-shadow: var(--box-shadow);
-  border-radius: var(--Radius-sm);
+  border-radius: var(--Radius-sm)
 }
 .right-sidebar ul .fromto{
   font-size: .9rem;
   color: var(--Grey-color);
-  text-align: end;
+  text-align: end
 }
 .right-sidebar ul label{
   position: relative;
@@ -1098,7 +1098,7 @@ aside ul li .languages a{
   font-weight: bolder;
   padding-left: 1.2rem;
   display: flex;
-  max-width: 95%;
+  max-width: 95%
 }
 .right-sidebar ul label .check{
   position: absolute;
@@ -1108,10 +1108,10 @@ aside ul li .languages a{
   height: 13px;
   border-radius: 4px;
   border: 1px solid var(--Grey-color);
-  margin-right: 5px;
+  margin-right: 5px
 }
 .right-sidebar ul input{
-  display: none;
+  display: none
 }
 .right-sidebar ul .check svg{
   position: absolute;
@@ -1125,7 +1125,7 @@ aside ul li .languages a{
   stroke-width: 50;
   stroke-dasharray: 1440;
   stroke-dashoffset: 1440;
-  transition: var(--Transition1);
+  transition: var(--Transition1)
 }
 .right-sidebar ul li .delete{
   position: absolute;
@@ -1134,7 +1134,7 @@ aside ul li .languages a{
   width: 20px;
   height: 20px;
   background: transparent;
-  display: none;
+  display: none
 }
 .right-sidebar ul li .delete svg{
   position: absolute;
@@ -1143,17 +1143,17 @@ aside ul li .languages a{
   transform: translate(-50%,-50%);
   fill: var(--Dark-color);
   width: 100%;
-  height: 100%;
+  height: 100%
 }
 .right-sidebar ul input:checked ~ label .check svg{
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 0
 }
 .right-sidebar ul input:checked ~ label p{
   text-decoration: line-through;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .right-sidebar ul input:checked ~ .delete{
-  display: block;
+  display: block
 }
 
 /* Dashboard */
@@ -1164,7 +1164,7 @@ aside ul li .languages a{
   padding-top: 5rem;
   background: var(--Light-color);
   display: flex;
-  overflow: hidden;
+  overflow: hidden
 }
 .dash .content,
 .profile .content{
@@ -1175,13 +1175,13 @@ aside ul li .languages a{
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem)
 }
 .dash .content .welcomes{
   position: relative;
   text-align: left;
   margin-bottom: 1rem;
-  width: 500px;
+  width: 500px
 }
 .dash .content .rises{
   position: relative;
@@ -1194,10 +1194,10 @@ aside ul li .languages a{
   flex-direction: column;
   background: var(--Dark-color);
   padding: .35rem 0;
-  border-radius: var(--Primary-radius);
+  border-radius: var(--Primary-radius)
 }
 .dash .content .rises h3{
-  color: var(--White-color);
+  color: var(--White-color)
 }
 .dash .content .rises .counter{
   position: absolute;
@@ -1205,14 +1205,14 @@ aside ul li .languages a{
   top: 50%;
   transform: translate(-50%,-50%);
   color: var(--Primary-color);
-  font-size: 1.2rem;
+  font-size: 1.2rem
 }
 .dash .content .rises .box{
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   width: 110px;
-  height: 110px;
+  height: 110px
 }
 .dash .content .rises .box svg{
   position: absolute;
@@ -1220,7 +1220,7 @@ aside ul li .languages a{
   left: 50%;
   transform: translate(-50%,-50%) rotate(-90deg);
   width: 100%;
-  height: 100%;
+  height: 100%
 }
 .dash .content .rises .box svg circle{
   fill: none;
@@ -1230,7 +1230,7 @@ aside ul li .languages a{
   stroke-dasharray: 265;
   stroke-dashoffset: 265;
   animation: progress_animate 2s forwards;
-  will-change: stroke-dashoffset;
+  will-change: stroke-dashoffset
 }
 @keyframes progress_animate{
   100%{
@@ -1252,44 +1252,44 @@ aside ul li .languages a{
   overflow: hidden;
   user-select: none;
   cursor: pointer;
-  z-index: 1;
+  z-index: 1
 }
 .dash .content .user-ident .credentials{
   font-stretch: expanded;
   letter-spacing: .12rem;
   padding: .45rem 0;
   color: var(--Dark-color);
-  text-shadow: 0 1px 2px var(--black-shadow);
+  text-shadow: 0 1px 2px var(--black-shadow)
 }
 .dash .content .user-ident .personal{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between
 }
 .dash .content .user-ident .back-shapes{
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100%
 }
 .dash .content .user-ident .back-shapes span{
   position: absolute;
   background: var(--Primary-color);
   border-radius: 50%;
-  z-index: -3;
+  z-index: -3
 }
 .dash .content .user-ident .back-shapes span:nth-child(1){
   top: 0;
   right: 0;
   transform: translateY(-50%);
   width: 80px;
-  height: 80px;
+  height: 80px
 }
 .dash .content .user-ident .back-shapes span:nth-child(2){
   bottom: 0;
   left: 0;
   transform: translateX(-50%);
   width: 60px;
-  height: 60px;
+  height: 60px
 }
 .dash .content .user-ident .back-shapes span:nth-child(3){
   top: 0;
@@ -1297,24 +1297,24 @@ aside ul li .languages a{
   background: transparent;
   border: 5px solid var(--Primary-color);
   width: 100%;
-  height: 100%;
+  height: 100%
 }
 .dash .content h3{
-  margin-bottom: 1rem;
+  margin-bottom: 1rem
 }
 
 /* New oproto */
 .dash .content .oproto{
   position: relative;
   margin-bottom: 1rem;
-  width: 500px;
+  width: 500px
 }
 .dash .content .oproto .avatar{
   position: absolute;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  overflow: hidden;
+  overflow: hidden
 }
 .dash .content .oproto .avatar img{
   position: absolute;
@@ -1322,7 +1322,7 @@ aside ul li .languages a{
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover
 }
 .dash .content .oproto .box{
   position: relative;
@@ -1331,7 +1331,7 @@ aside ul li .languages a{
   border-radius: var(--Radius-xs);
   background: var(--White-color);
   padding: 1.2rem;
-  z-index: 9;
+  z-index: 9
 }
 .dash .content .oproto .box textarea{
   outline: none;
@@ -1344,7 +1344,7 @@ aside ul li .languages a{
   padding: .35rem 5rem;
   font-size: 1.2rem;
   font-weight: bolder;
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .dash .content .oproto .box .ftr-pst{
   position: relative;
@@ -1356,14 +1356,14 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow2);
   margin-top: .5rem;
   padding: .4rem 1rem;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .dash .content .oproto .box .ftr-pst .items{
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap
 }
 .dash .content .oproto .box .ftr-pst .items .subtext{
-  margin-left: .2rem;
+  margin-left: .2rem
 }
 .dash .content .oproto .box .ftr-pst .addons{
   position: relative;
@@ -1371,21 +1371,21 @@ aside ul li .languages a{
   background-color: transparent;
   transform: translateY(-10%);
   padding: 0 .75rem;
-  z-index: 2;
+  z-index: 2
 }
 .dash .content .oproto .box .ftr-pst .addons svg{
   width: 19px;
   height: 19px;
-  transform: translateY(25%);
+  transform: translateY(25%)
 }
 .dash .content .oproto .box .ftr-pst .addons span{
   font-size: .82rem;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .dash .content .oproto .box .ftr-pst .submit{
   position: relative;
   display: block;
-  right: 0;
+  right: 0
 }
 .dash .content .addons .box-addons{
   position: absolute;
@@ -1402,7 +1402,7 @@ aside ul li .languages a{
   text-align: left;
   overflow-y: scroll;
   transition: 300ms ease-in-out;
-  z-index: 2;
+  z-index: 2
 }
 .dash .content .addons .box-addons::before{
   content: '';
@@ -1413,7 +1413,7 @@ aside ul li .languages a{
   height: 0; 
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 6px solid var(--Primary-color);
+  border-bottom: 6px solid var(--Primary-color)
 }
 .dash .content .addons .box-addons .submit{
   width: 100%;
@@ -1424,18 +1424,18 @@ aside ul li .languages a{
   font-size: .8rem;
   display: block;
   background: var(--Light-color);
-  text-align: center;
+  text-align: center
 }
 .dash .content .addons .box-addons p{
   font-size: 1rem;
   margin-bottom: .5rem;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .dash .content .addons .box-addons .emojis-box div{
-  padding: 1rem 0;
+  padding: 1rem 0
 }
 .dash .content .addons.active .box-addons{
-  transform: scaleY(1) translateY(0);
+  transform: scaleY(1) translateY(0)
 }
 
 /* Posts */
@@ -1444,7 +1444,7 @@ aside ul li .languages a{
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
-  width: 500px;
+  width: 500px
 }
 .content .filters button{
   font-size: .85rem;
@@ -1452,11 +1452,11 @@ aside ul li .languages a{
   border-radius: 25px;
   padding: .35rem .5rem;
   margin-left: .65rem;
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .content .filters button.active{
   background: var(--Dark-color);
-  color: var(--White-color);
+  color: var(--White-color)
 }
 .content .posts{
   position: relative;
@@ -1467,7 +1467,7 @@ aside ul li .languages a{
   min-height: 100%;
   width: 500px;
   padding: 0 1px;
-  padding-bottom: 2rem;
+  padding-bottom: 2rem
 }
 .content .posts .post{
   position: relative;
@@ -1475,7 +1475,7 @@ aside ul li .languages a{
   min-height: 80px;
   width: 500px;
   margin: .75rem 0;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .content .posts .post .kipper{
   position: relative;
@@ -1484,12 +1484,13 @@ aside ul li .languages a{
   border-radius: var(--Radius-xs);
   background: var(--White-color);
   box-shadow: var(--box-shadow);
-  padding-top: .5rem;
+  outline: none;
+  padding-top: .5rem
 }
-.content .posts .post:hover > .kipper{
+/*.content .posts .post:hover > .kipper{
   animation: hinge 2s 1s ease-in-out alternate forwards;
-  transform-origin: top left;
-}
+  transform-origin: top left
+}*/
 @keyframes hinge{
 	0%{
     transform: rotate(0);
@@ -1515,7 +1516,7 @@ aside ul li .languages a{
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .content .posts .behind-post::before{
   content: '';
@@ -1523,58 +1524,58 @@ aside ul li .languages a{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  height: 90%;
-  width: 96%;
+  height: 94%;
+  width: 98%;
   background: linear-gradient(to right, var(--Grey-color) 50%, transparent 0%) top/20px 1px repeat-x,
               linear-gradient(var(--Grey-color) 50%, transparent 0%) right/1px 20px repeat-y,
               linear-gradient(to right, var(--Grey-color) 50%, transparent 0%) bottom/20px 1px repeat-x,
-              linear-gradient(var(--Grey-color) 50%, transparent 0%) left/1px 20px repeat-y;
+              linear-gradient(var(--Grey-color) 50%, transparent 0%) left/1px 20px repeat-y
 }
 /* Inner */
 .content .posts .post .inner{
   position: relative;
-  padding: 1.2rem 1rem;
+  padding: .5rem 1rem;
   display: flex;
   justify-content: flex-start;
   z-index: 4;
-  width: 100%;
+  width: 100%
 }
 .content .posts .post .inner .head{
   z-index: 3;
-  width: 100%;
+  width: 100%
 }
 .content .posts .post .inner .head .off-user{
   display: flex;
   flex-wrap: nowrap;
-  width: 100%;
+  width: 100%
 }
 .content .posts .post .inner .head .user-info{
   position: relative;
   margin-left: .5rem;
-  width: 100%;
+  width: 100%
 }
 .content .posts .post .inner .head .user-info .inline{
-  margin-bottom: .3rem;
+  margin-bottom: .3rem
 }
 .content .posts .post .inner .head .user-info .inline label{
   margin-top: .15rem;
   margin-left: .5rem;
   font-size: .8em;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .content .posts .post .inner .head .user-info .date{
   color: var(--Grey-color);
   font-weight: bolder;
-  font-size: .85em;
+  font-size: .85em
 }
 .content .posts .post .inner .head .user-info .date p{
   box-shadow: var(--box-shadow2);
   padding: .2rem .4rem;
-  margin-left: .5rem;
+  margin-left: .5rem
 }
 .content .posts .post .inner .head .user-info .date p svg{
   width: 15px;
-  height: 15px;
+  height: 15px
 }
 .content .posts .post .inner .head .user-info span.text-bold{
   position: relative;
@@ -1582,7 +1583,7 @@ aside ul li .languages a{
   color: var(--Dark-color);
   font-weight: bolder;
   letter-spacing: 1px;
-  font-size: .92rem;
+  font-size: .92rem
 }
 .content .posts .post .avatar{
   position: relative;
@@ -1590,7 +1591,7 @@ aside ul li .languages a{
   height: 50px;
   border-radius: 50%;
   box-shadow: var(--box-shadow);
-  overflow: hidden;
+  overflow: hidden
 }
 .content .posts .post .avatar img{
   position: absolute;
@@ -1600,7 +1601,7 @@ aside ul li .languages a{
   height: 100%;
   margin-bottom: 50px;
   object-fit: cover;
-  z-index: 1;
+  z-index: 1
 }
 .content .posts .post .dropdown{
   position: absolute;
@@ -1609,7 +1610,7 @@ aside ul li .languages a{
   user-select: none;
   pointer-events: none;
   transform-origin: center;
-  z-index: 99;
+  z-index: 99
 }
 .content .posts .post .dropdown span{
   position: absolute;
@@ -1620,23 +1621,23 @@ aside ul li .languages a{
   justify-content: center;
   pointer-events: visible;
   user-select: none;
-  cursor: pointer;
+  cursor: pointer
 }
 .content .posts .post .dropdown > span{
   border-radius: 50%;
   background: transparent;
-  transition: 300ms ease;
+  transition: 300ms ease
 }
 .content .posts .post .dropdown > span:hover{
-  background: rgba(0,0,0,.08);
+  background: rgba(0,0,0,.08)
 }
 .content .posts .post .dropdown span svg{
   width: 20px;
   height: 20px;
-  fill: var(--Grey-color);
+  fill: var(--Grey-color)
 }
 .content .posts .post .dropdown p{
-  padding: 0 .35rem;
+  padding: 0 .35rem
 }
 .content .posts .post .dropdown ul{
   position: absolute;
@@ -1651,10 +1652,10 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow2);
   border-radius: var(--Radius-xs);
   pointer-events: visible;
-  z-index: 99;
+  z-index: 99
 }
 .content .posts .post .dropdown ul.show{
-  display: flex;
+  display: flex
 }
 .content .posts .post .dropdown ul::before{
   content: '';
@@ -1667,7 +1668,7 @@ aside ul li .languages a{
   border-width: 0px 10px 10px 10px;
   filter: drop-shadow(var(--trangle-shadow));
   height: 0px;
-  width: 0px;
+  width: 0px
 }
 .content .posts .post .dropdown ul li{
   position: relative;
@@ -1677,16 +1678,16 @@ aside ul li .languages a{
   font-weight: bolder;
   width: 100%;
   cursor: pointer;
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .content .posts .post .dropdown ul li svg{
   fill: var(--Grey-color);
   width: 20px;
   height: 20px;
-  margin-top: -5px;
+  margin-top: -5px
 }
 .content .posts .post .dropdown ul li p{
-  padding-left: .5rem;
+  padding-left: .5rem
 }
 .content .posts .post .dropdown ul li p span{
   position: relative;
@@ -1695,31 +1696,31 @@ aside ul li .languages a{
   width: 100%;
   padding-left: 1.2rem;
   margin-top: -.5rem;
-  font-size: .78rem;
+  font-size: .78rem
 }
 .content .posts .post .dropdown ul .line{
-  background: var(--Grey-color);
+  background: var(--Grey-color)
 }
 .content .posts .post .body{
   position: relative;
   padding: .3rem 0;
-  z-index: 3;
+  z-index: 3
 }
 .content .posts .post .body .link{
   padding: .3rem 1.2rem;
   border-radius: 25px;
-  display: inline;
+  display: inline
 }
 .content .posts .post .body .link a{
   font-size: 1rem;
   color: var(--Primary-color);
-  letter-spacing: .1rem;
+  letter-spacing: .1rem
 }
 .content .posts .post .body .link svg{
   margin-bottom: -.1rem;
   margin-right: .4rem;
   width: 15px;
-  height: 15px;
+  height: 15px
 }
 .content .posts .post .body p{
   font-family: Chapaza;
@@ -1733,7 +1734,7 @@ aside ul li .languages a{
   padding: 0 1rem;
   white-space: pre-wrap;
   text-align: start;
-  user-select: text;
+  user-select: text
 }
 .content .posts .post .nmbrs{
   position: relative;
@@ -1741,10 +1742,10 @@ aside ul li .languages a{
   justify-content: space-between;
   padding: .2rem .7rem;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap
 }
 .content .posts .post .nmbrs div{
-  margin: 0 .5rem;
+  margin: 0 .5rem
 }
 .content .posts .post .nmbrs .svg-icon{
   padding: 2px;
@@ -1753,16 +1754,16 @@ aside ul li .languages a{
   color: var(--Grey-color);
   border-radius: 50%;
   box-shadow: inset -2px -2px 10px rgba(0,0,0,.13);
-  justify-content: center;
+  justify-content: center
 }
 .content .posts .post .nmbrs .svg-icon.next-icon{
   margin-left: -.17rem;
-  margin-right: .25rem;
+  margin-right: .25rem
 }
 .content .posts .post .nmbrs svg{
   height: 15px;
   width: 15px;
-  fill: white;
+  fill: white
 }
 .content .post .footer{
   position: relative;
@@ -1770,7 +1771,7 @@ aside ul li .languages a{
   justify-content: space-between;
   flex-wrap: nowrap;
   padding: 0 .5rem;
-  z-index: 3;
+  z-index: 3
 }
 .content .post .footer .head .react{
   cursor: pointer;
@@ -1778,23 +1779,23 @@ aside ul li .languages a{
   padding: .3rem 1rem;
   border-radius: var(--Radius-xs);
   transform: scale(1);
-  background: transparent;
+  background: transparent
 }
 .content .post .footer .head .react:active{
-  transform: scale(.969);
+  transform: scale(.969)
 }
 .content .post .footer .head .react:hover{
-  background: var(--Smooth-Back);
+  background: var(--Smooth-Back)
 }
 .content .post .footer .head .react svg{
   width: 23px;
   height: 23px;
   fill: var(--Grey-color);
-  margin-right: .18rem;
+  margin-right: .18rem
 }
 .content .post .footer .head .share svg{
   width: 20px;
-  height: 20px;
+  height: 20px
 }
 .content .post .footer .head span{
   cursor: pointer;
@@ -1802,20 +1803,20 @@ aside ul li .languages a{
   color: var(--Grey-color);
   font-weight: 600;
   user-select: none;
-  font-weight: bolder;
+  font-weight: bolder
 }
 /* Comments */
 .content .posts .post .comments{
   position: relative;
   padding: 0 .7rem;
   z-index: 5;
-  display: none;
+  display: none
 }
 .content .posts .post .comments .comments-form{
   position: relative;
   width: 100%;
   margin: .5rem 0;
-  padding: .7rem .5rem;
+  padding: .7rem .5rem
 }
 .content .posts .post .comments .comments-form .form-content{
   position: relative;
@@ -1823,16 +1824,16 @@ aside ul li .languages a{
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-  width: 100%;
+  width: 100%
 }
 .content .posts .post .comments .comments-form .form-content .form-item{
-  flex-grow: 1;
+  flex-grow: 1
 }
 .content .posts .post .comments .comments-form .form-content .form-item.form-input{
   flex-grow: 2;
   margin: 0 .3rem;
   background: var(--White-color-secondary);
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .content .posts .post .comments .comments-form .form-content .form-input textarea{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1849,10 +1850,10 @@ aside ul li .languages a{
   background: transparent;
   border: none;
   outline: none;
-  resize: none;
+  resize: none
 }
 .content .posts .post .comments .comments-form .form-content .submit::first-letter{
-  text-transform: uppercase;
+  text-transform: uppercase
 }
 .content .posts .post .comments .comments-form .form-content .submit{
   border: none;
@@ -1863,51 +1864,51 @@ aside ul li .languages a{
   letter-spacing: .8px;
   cursor: pointer;
   font-weight: 600;
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .content .posts .post .comments.show{
-  display: block;
+  display: block
 }
 .content .posts .post .comments .avatar{
   width: 35px;
-  height: 35px;
+  height: 35px
 }
 .content .posts .post .comments .comments-card{
   position: relative;
-  background: var(--White-color);
+  background: var(--White-color)
 }
 .content .posts .post .comments .comments-card .comment{
   background: var(--White-color-secondary);
   padding: .4rem;
   border-radius: var(--Radius-sm);
-  width: 100%;
+  width: 100%
 }
 .content .posts .post .comments .comments-card .body p{
   font-size: .83rem;
   min-height: inherit;
   font-weight: 100;
   padding: 0;
-  padding-left: .5rem;
+  padding-left: .5rem
 }
 .content .posts .post .comments .comments-card .dropdown{
   top: 17px;
-  right: 10px;
+  right: 10px
 }
 .content .posts .post .comments .comments-card .footer{
   margin: 0;
   width: 100%;
   box-shadow: none;
-  padding:0 .7rem;
+  padding:0 .7rem
 }
 .content .posts .post .comments .comments-card .footer .head{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  width: 100%;
+  width: 100%
 }
-.content .posts .post .comments .comments-card .footer .head .react .mlt{
-  margin-left: 1rem;
+.content .posts .post .comments .comments-card .footer .head .reagir .mlt{
+  margin-left: 1rem
 }
 .content .posts .post .comments .comments-card .footer .head .cmntsnbr{
   margin-top: .225rem;
@@ -1919,19 +1920,19 @@ aside ul li .languages a{
   height: 20px;
   color: var(--Dark-color);
   font-size: .7rem;
-  cursor: pointer;
+  cursor: pointer
 }
 .content .posts .post .comments .comments-card .footer .head .cmntsnbr svg{
   width: 17px;
   height: 17px;
-  margin-bottom: -.1rem;
+  margin-bottom: -.1rem
 }
 .content .posts .post .comments .comments-card .footer .head .cmntsnbr svg:hover{
-  fill: var(--Dark-color);
+  fill: var(--Dark-color)
 }
 .content .posts .post .comments .comments-card .footer .head .cmntsnbr svg#dislike{
   fill: var(--Grey-color);
-  margin-left: -5%;
+  margin-left: -5%
 }
 
 /* Profile */
@@ -1940,7 +1941,7 @@ aside ul li .languages a{
   top: 0;
   width: 100%;
   padding-top: 5rem;
-  overflow-x: hidden;
+  overflow-x: hidden
 }
 .profile .content .heading{
   position: relative;
@@ -1948,7 +1949,7 @@ aside ul li .languages a{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  flex-wrap: wrap
 }
 .profile .content .heading .avatar{
   position: relative;
@@ -1958,7 +1959,7 @@ aside ul li .languages a{
   border-radius: 50%;
   margin: 0 .5rem;
   box-shadow: 0 3px 5px rgba(0,0,0,.08);
-  user-select: none;
+  user-select: none
 }
 .profile .content .heading .avatar img{
   position: absolute;
@@ -1967,7 +1968,7 @@ aside ul li .languages a{
   transform: translate(-50%,-50%);
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 50%
 }
 /* .profile .content .heading .avatar .half-circle{
   position: absolute;
@@ -1978,17 +1979,17 @@ aside ul li .languages a{
   border: 2px solid var(--Primary-color);
   border-radius: 50%;
   transform: rotate(-135deg) translate(10%,00%);
-  z-index: 2;
+  z-index: 2
 }
 .profile .content .heading .avatar .half-circle:nth-child(1){
   border-top-color: transparent;
   border-bottom-color: transparent;
-  border-left-color: transparent;
+  border-left-color: transparent
 }
 .profile .content .heading .avatar .half-circle:nth-child(2){
   border-top-color: transparent;
   border-bottom-color: transparent;
-  border-right-color: transparent;
+  border-right-color: transparent
 } */
 .profile .content .heading .btns .bt{
   margin: .35rem 0;
@@ -2002,22 +2003,22 @@ aside ul li .languages a{
   align-items: center;
   cursor: pointer;
   font-size: .9rem;
-  font-weight: bolder;
+  font-weight: bolder
 }
 .profile .content .heading .btns .follow{
   background: var(--Primary-color);
-  color: #f5f5f5;
+  color: #f5f5f5
 }
 .profile .content .heading .btns .edit{
   background: var(--Light-color);
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .profile .content .heading .btns .bt svg{
   width: 18px;
-  height: 18px;
+  height: 18px
 }
 .profile .content .heading .btns .follow svg{
-  fill: #f5f5f5;
+  fill: #f5f5f5
 }
 .profile .content .heading .stats{
   position: relative;
@@ -2026,11 +2027,11 @@ aside ul li .languages a{
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0
 }
 .profile .content .heading .stats .in-line{
   display: flex;
-  flex-direction: row;
+  flex-direction: row
 }
 .profile .content .heading .stats .user p{
   color: var(--Grey-color);
@@ -2040,29 +2041,29 @@ aside ul li .languages a{
   border-radius: var(--Radius-xs);
   cursor: pointer;
   user-select: none;
-  letter-spacing: .5px;
+  letter-spacing: .5px
 }
 .profile .content .heading .stats .user h3{
   text-transform: capitalize;
-  letter-spacing: 1.35px;
+  letter-spacing: 1.35px
 }
 .profile .content .heading .stats .user span{
-  margin: 0 .65rem;
+  margin: 0 .65rem
 }
 .profile .content .heading .stats .user span svg{
   fill: var(--Primary-color);
   width: 18px;
   height: 18px;
-  filter: drop-shadow(0 0 10px var(--Primary-color));
+  filter: drop-shadow(0 0 10px var(--Primary-color))
 }
 .profile .content .heading .stats .gets{
-  margin: 1rem 0;
+  margin: 1rem 0
 }
 .profile .content .heading .stats .gets button{
   outline: none;
   border: none;
   background: transparent;
-  margin-right: 2rem;
+  margin-right: 2rem
 }
 .profile .content .heading .stats p{
   display: flex;
@@ -2070,18 +2071,18 @@ aside ul li .languages a{
   flex-wrap: nowrap;
   font-size: 1.08rem;
   font-weight: 200;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .profile .content .heading .stats p span{
   color: var(--Dark-color);
   margin-left: .5rem;
-  font-weight: bold;
+  font-weight: bold
 }
 .profile .content .heading .stats .bio p{
   font-size: .9rem;
   color: var(--Dark-color);
   max-width: 70%;
-  text-align: justify;
+  text-align: justify
 }
 .profile .content .divider{
   position: relative;
@@ -2091,28 +2092,28 @@ aside ul li .languages a{
   background: var(--Grey-color);
   height: 1px;
   border-radius: var(--Primary-radius);
-  margin: 1rem 0;
+  margin: 1rem 0
 }
 .profile .content .info{
   position: relative;
   width: 65%;
   padding: 1rem 0;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .profile .content .info .item{
-  margin: .5rem 0;
+  margin: .5rem 0
 }
 .profile .content .info .credentials p{
-  line-height: 3rem;
+  line-height: 3rem
 }
 .profile .content .info .credentials p a.email{
-  margin-left: .46rem;
+  margin-left: .46rem
 }
 .profile .content .info .edu{
   box-shadow: var(--box-shadow);
   padding: .5rem;
   height: 100%;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .profile .content .info .toggle-box{
   position: absolute;
@@ -2124,33 +2125,33 @@ aside ul li .languages a{
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: pointer
 }
 .profile .content .info p{
   font-size: 1rem;
   letter-spacing: 1px;
   font-weight: bold;
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .profile .content .info p a.email{
-  margin-left: 1rem;
+  margin-left: 1rem
 }
 .profile .content .info p a,
 .profile .content .info p span{
-  margin-left: .45rem;
+  margin-left: .45rem
 }
 .profile .content .info p svg{
   width: 20px;
   height: 20px;
-  fill: var(--Grey-color);
+  fill: var(--Grey-color)
 }
 .profile .content .rank{
   position: relative;
   margin: 2rem 0;
-  width: 65%;
+  width: 65%
 }
 .profile .content .rank .glitch{
-  display: none;
+  display: none
 }
 .profile .content .rank .item{
   position: relative;
@@ -2165,7 +2166,7 @@ aside ul li .languages a{
   margin: 1rem;
   border-radius: var(--Radius-xs);
   cursor: pointer;
-  user-select: none;
+  user-select: none
 }
 .profile .content .rank .item span{
   position: relative;
@@ -2177,11 +2178,11 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow);
   margin-top: .5rem;
   text-align: center;
-  width: 100px;
+  width: 100px
 }
 .profile .content .rank .item.show span{
   transform: translateY(-200%);
-  animation: rank 700ms cubic-bezier(.3,.6,.89,.67) forwards;
+  animation: rank 700ms cubic-bezier(.3,.6,.89,.67) forwards
 }
 @keyframes rank{
   from{
@@ -2196,10 +2197,10 @@ aside ul li .languages a{
 }
 .profile .content .rank .item:not(.show) span::before,
 .profile .content .rank .item:not(.show) span::after{
-  display: none;
+  display: none
 }
 .profile .content .rank .item:not(.show) span{
-  width: 100%;
+  width: 100%
 }
 .profile .content .rank .item span::before,
 .profile .content .rank .item span::after{
@@ -2210,36 +2211,36 @@ aside ul li .languages a{
   height: 10px;
   display: block;
   background: rgba(36, 37, 38,.6);
-  z-index: -2;
+  z-index: -2
 }
 .profile .content .rank .item span::before{
   left: 0;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  transform: translate(3%,-100%);
+  transform: translate(3%,-100%)
 }
 .profile .content .rank .item span::after{
   right: 0;
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
-  transform: translate(-5%,-100%);
+  transform: translate(-5%,-100%)
 }
 .profile .content .rank .item svg{
   width: 32px;
-  height: 32px;
+  height: 32px
 }
 .profile .content .rank div:nth-child(1) .item svg{
-  fill: url(#Bronze);
+  fill: url(#Bronze)
 }
 .profile .content .rank div:nth-child(2) .item svg{
-  fill: url(#Silver);
+  fill: url(#Silver)
 }
 .profile .content .rank div:nth-child(3) .item svg{
-  fill: url(#Gold);
+  fill: url(#Gold)
 }
 .profile .content .rank div:nth-child(4) .item svg{
-  fill: url(#Platinum);
+  fill: url(#Platinum)
 }
 .profile .content .rank div:nth-child(5) .item svg{
-  fill: url(#Diamond);
+  fill: url(#Diamond)
 }
 .profile .content .rank .item .frozen{
   position: absolute;
@@ -2256,33 +2257,33 @@ aside ul li .languages a{
   justify-content: center;
   align-items: flex-end;
   padding-bottom: .5rem;
-  z-index: 2;
+  z-index: 2
 }
 .profile .content .rank .item .frozen span{
   background: var(--White-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .2rem 0;
+  padding: .2rem 0
 }
 .profile .content .rank .item .frozen span svg{
   fill: var(--Dark-color) !important;
   width: 16px;
-  height: 16px;
+  height: 16px
 }
 .profile .content .rank .item .frozen .interrogation{
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-75%);
+  transform: translate(-50%,-75%)
 }
 .profile .content .rank .item .frozen .interrogation svg{
   fill: var(--White-color) !important;
   width: 30px;
-  height: 30px;
+  height: 30px
 }
 .profile .content .rank .item:not(.show) .frozen{
-  display: flex;
+  display: flex
 }
 
 /* Edit Profile */
@@ -2290,10 +2291,10 @@ aside ul li .languages a{
   position: relative;
   top: 0;
   width: 100%;
-  padding-top: 5rem;
+  padding-top: 5rem
 }
 .edit-profile .content .inner{
-  padding: 0 260px;
+  padding: 0 260px
 }
 .edit-profile .content .navigate{
   position: relative;
@@ -2302,32 +2303,32 @@ aside ul li .languages a{
   align-items: center;
   width: 100%;
   margin-top: 1.2rem;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .edit-profile .content .navigate .item{
   position: relative;
   padding: .35rem .75rem;
   user-select: none;
   cursor: pointer;
-  border-radius: var(--Radius-sm);
+  border-radius: var(--Radius-sm)
 }
 .edit-profile .content .navigate .item:hover svg,
 .edit-profile .content .navigate .item:hover span,
 .edit-profile .content .navigate .item.active svg,
 .edit-profile .content .navigate .item.active span{
   fill: var(--Primary-color);
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .edit-profile .content .navigate .item svg{
   width: 19px;
   height: 19px;
-  transform: translateY(10%);
+  transform: translateY(10%)
 }
 .edit-profile .content .navigate .item span{
   font-size: .95rem;
   font-weight: bold;
   color: var(--Grey-color);
-  letter-spacing: 1px;
+  letter-spacing: 1px
 }
 .edit-profile .content .edits{
   position: relative;
@@ -2335,28 +2336,28 @@ aside ul li .languages a{
   width: 100%;
   padding: 1rem 3rem;
   margin-bottom: 4rem;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .edit-profile .content .edits .element{
-  display: none;
+  display: none
 }
 .edit-profile .content .edits .element input,
 .edit-profile .content .edits .element textarea,
 .edit-profile .content .edits .element select{
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .edit-profile .content .edits .element.active{
-  display: block;
+  display: block
 }
 .edit-profile .content .edits .element h3{
   color: var(--Dark-color);
   margin: 1rem 0;
-  font-weight: bold;
+  font-weight: bold
 }
 .edit-profile .content .edits .element .description{
   font-size: .82rem;
   letter-spacing: 1px;
-  color: var(--Grey-color);
+  color: var(--Grey-color)
 }
 .edit-profile .content .edits .element .avatar{
   position: relative;
@@ -2364,7 +2365,7 @@ aside ul li .languages a{
   margin-bottom: 2rem;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 .edit-profile .content .edits .element .avatar .change{
   position: absolute;
@@ -2381,12 +2382,12 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow);
   border-radius: 50%;
   overflow: hidden;
-  cursor: pointer;
+  cursor: pointer
 }
 .edit-profile .content .edits .element .avatar .change svg{
   width: 13px;
   height: 13px;
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 .edit-profile .content .edits .element .avatar img{
   position: absolute;
@@ -2396,24 +2397,24 @@ aside ul li .languages a{
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  box-shadow: 0 5px 20px rgba(0,0,0,.12);
+  box-shadow: 0 5px 20px rgba(0,0,0,.12)
 }
 .edit-profile .content .edits .element .title{
   font-size: 1rem;
   color: var(--Dark-color);
-  font-weight: bold;
+  font-weight: bold
 }
 .edit-profile .content .edits .element .required span{
   padding: 0 .35rem;
   transform: translateY(-10%);
-  color: var(--Danger-color);
+  color: var(--Danger-color)
 }
 .edit-profile .content .edits .element .submit{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 0
 }
 .edit-profile .content .saved-post{
   position: relative;
@@ -2424,13 +2425,13 @@ aside ul li .languages a{
   flex-wrap: wrap;
   padding: .5rem 2rem;
   margin: 1rem 0;
-  border-radius: var(--Radius-xs);
+  border-radius: var(--Radius-xs)
 }
 .edit-profile .content .saved-post .title h3{
   font-size: 1rem;
   color: var(--Dark-color);
   letter-spacing: 1px;
-  font-weight: 400;
+  font-weight: 400
 }
 .edit-profile .content .saved-post .buttons a,
 .edit-profile .content .saved-post .buttons button{
@@ -2444,26 +2445,26 @@ aside ul li .languages a{
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: pointer
 }
 .edit-profile .content .saved-post .buttons svg{
   width: 18px;
   height: 18px;
-  fill: var(--White-color);
+  fill: var(--White-color)
 }
 .edit-profile .content .saved-post .buttons{
-  margin: 0 .35rem;
+  margin: 0 .35rem
 }
 .edit-profile .content .saved-post .visit a{
-  background: var(--Primary-color);
+  background: var(--Primary-color)
 }
 .edit-profile .content .saved-post .delete button{
-  background: var(--Danger-color);
+  background: var(--Danger-color)
 }
 .edit-profile .content .saved-post .links{
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap
 }
 
 /* Registration */
@@ -2471,10 +2472,10 @@ aside ul li .languages a{
   position: relative;
   top: 0;
   width: 100%;
-  padding: 5rem 0;
+  padding: 5rem 0
 }
 .register .content{
-  padding: 0 380px;
+  padding: 0 380px
 }
 .register .box{
   position: relative;
@@ -2485,7 +2486,7 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow2);
   background: var(--White-color);
   border-radius: var(--Radius-xs);
-  overflow: hidden;
+  overflow: hidden
 }
 .register .box .form-title{
   position: absolute;
@@ -2495,18 +2496,18 @@ aside ul li .languages a{
   font-size: 2.2rem;
   padding: 1rem 0;
   text-align: center;
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .register .box .acc-type{
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: center
 }
 .register .box .acc-type .item{
-  margin: 1rem 0;
+  margin: 1rem 0
 }
 .register .box .acc-type .item input{
-  display: none;
+  display: none
 }
 .register .box .acc-type .item label{
   position: relative;
@@ -2516,18 +2517,18 @@ aside ul li .languages a{
   border-radius: var(--Radius-xs);
   color: var(--Dark-color);
   cursor: pointer;
-  overflow: hidden;
+  overflow: hidden
 }
 .register .box .acc-type .item label svg{
-  margin: 0 .2rem;
+  margin: 0 .2rem
 }
 .register .box .acc-type .item input:checked ~ label svg{
-  fill: var(--Primary-color);
+  fill: var(--Primary-color)
 }
 .register .box .acc-type .item input:checked ~ label{
   border-color: var(--Primary-color);
   color: var(--Primary-color);
-  transition: var(--Transition1);
+  transition: var(--Transition1)
 }
 .register .box .acc-type .item input:checked ~ label::after{
   content: '';
@@ -2538,78 +2539,78 @@ aside ul li .languages a{
   width: 80%;
   height: 35%;
   background: rgba(87, 190, 108,.45);
-  z-index: -2;
+  z-index: -2
 }
 .register .box .footer{
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem
 }
 .register .box .submit{
   position: relative;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: center
 }
 .register .box .required span{
   padding: 0 .35rem;
   transform: translateY(-10%);
-  color: var(--Danger-color);
+  color: var(--Danger-color)
 }
 .register .box .input-item{
   margin-bottom: .2rem;
   border: 1px solid transparent;
-  color: var(--Dark-color);
+  color: var(--Dark-color)
 }
 .register .box .input-item.valid,
 .register .box .input-item.unvalid{
-  background: var(--White-color);
+  background: var(--White-color)
 }
 .register .box .input-item.valid{
-  border-color: var(--Primary-color);
+  border-color: var(--Primary-color)
 }
 .register .box .input-item.unvalid{
-  border-color: var(--Danger-color);
+  border-color: var(--Danger-color)
 }
 .register .box .input-item option{
   background: var(--White-color);
   font-size: 1rem;
-  font-family: bold;
+  font-family: bold
 }
 .register .box .input-item option:checked{
-  color: var(--Primary-color);
+  color: var(--Primary-color)
 }
 .register .box .desc{
-  font-size: .8rem;
+  font-size: .8rem
 }
 .register .box .fields div{
-  margin-top: .55rem;
+  margin-top: .55rem
 }
 .register .box .fields label{
-  font-weight: 500;
+  font-weight: 500
 }
 .register .box .link{
   position: relative;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center
 }
 .register .box .link p{
   position: relative;
   font-size: 1rem;
   font-weight: 500;
-  letter-spacing: .5px;
+  letter-spacing: .5px
 }
 .register .box .link a,
 .register .box .terms a{
   color: var(--Primary-color);
   font-weight: bold;
-  margin: 0 .35rem;
+  margin: 0 .35rem
 }
 .register .box .terms{
-  display: inline;
+  display: inline
 }
 .register .box .terms label{
   position: relative;
@@ -2620,7 +2621,7 @@ aside ul li .languages a{
   padding-left: 1.2rem;
   display: flex;
   max-width: 95%;
-  margin-top: 1rem;
+  margin-top: 1rem
 }
 .register .box .terms label .check{
   position: absolute;
@@ -2630,10 +2631,10 @@ aside ul li .languages a{
   height: 13px;
   border-radius: 4px;
   border: 1px solid var(--Grey-color);
-  margin-right: 5px;
+  margin-right: 5px
 }
 .register .box .terms input{
-  display: none;
+  display: none
 }
 .register .box .terms .check svg{
   position: absolute;
@@ -2647,30 +2648,30 @@ aside ul li .languages a{
   stroke-width: 50;
   stroke-dasharray: 1440;
   stroke-dashoffset: 1440;
-  transition: var(--Transition1);
+  transition: var(--Transition1)
 }
 .register .box .terms input:checked ~ label .check svg{
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 0
 }
 .register .box .fields .pass{
-  position: relative;
+  position: relative
 }
 .register .box .fields .pass .visible{
   position: absolute;
   top: 50%;
   right: 0;
   transform: translate(-50%,-50%);
-  cursor: pointer;
+  cursor: pointer
 }
 .register .box .fields .pass .visible svg{
   width: 18px;
-  height: 18px;
+  height: 18px
 }
 .register .box .fields .forgot{
-  text-align: right;
+  text-align: right
 }
 .register .box .fields .forgot a{
-  cursor: pointer;
+  cursor: pointer
 }
 
 /* Mobile Styles */
