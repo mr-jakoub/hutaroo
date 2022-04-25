@@ -9,10 +9,11 @@
   --White-color: #ffffff;
   --White-color-secondary: #f0f2f5;
   --Light-color: #f0f2f5;
-  --Dark-color: #242526;
+  --Dark-color: #1a1a1a;
+  --Black-color: #141414;
   --Grey-color: #808388;
   --Smooth-Back: rgba(0,0,0,.07);
-  --Primary-color: #57be6c;/*#57be6c*/
+  --Primary-color: #1b88a7;/*#57be6c*/
   --Danger-color: #cc0e00;
   --Shadow-sm: rgba(0,0,0,.38);
   
@@ -78,20 +79,17 @@ a:hover{
   font-size: 1rem !important;
   font-weight: bolder !important
 }
-ul{
-  list-style: none
-}
-img{
-  width: 100%
-}
+ul{list-style: none}
+img{width: 100%}
+.overflow-hidden{overflow: hidden}
 .line{
   position: relative;
   left: 0;
   width: 100%;
-  margin: .35rem 0;
+  margin: .5rem 0;
   height: 1.05px;
   border-radius: 50px;
-  box-shadow: inset 0 0 2px var(--shadow-sm)
+  box-shadow: inset 0 0 1px var(--shadow-sm)
 }
 .half-line{
   position: relative;
@@ -103,6 +101,24 @@ img{
 }
 .hl-left{ left: 0; }
 .hl-right{ right: 0; }
+/* pop up */
+.popup-back-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999
+}
+.popup-back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11,11,11,.8);
+  z-index: -1
+}
 svg{
   width: 25px;
   height: 25px;
@@ -133,7 +149,7 @@ a:not(.logo):hover{
   color: var(--Primary-color)
 }
 .logo{
-  font-weight: 300
+  font-weight: 400
 }
 .SEC-title{
   position: relative;
@@ -1306,23 +1322,7 @@ aside ul li .languages a{
 /* New oproto */
 .dash .content .oproto{
   position: relative;
-  margin-bottom: 1rem;
   width: 500px
-}
-.dash .content .oproto .avatar{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden
-}
-.dash .content .oproto .avatar img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover
 }
 .dash .content .oproto .box{
   position: relative;
@@ -1330,21 +1330,81 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow2);
   border-radius: var(--Radius-xs);
   background: var(--White-color);
-  padding: 1.2rem;
+  padding: .8rem 1rem;
   z-index: 9
 }
-.dash .content .oproto .box textarea{
-  outline: none;
-  border: none;
-  background: transparent;
+.dash .content .oproto .box .frame{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+.dash .content .oproto .box .pst-items{
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap
+}
+.dash .content .oproto .box .pst-item{
+  cursor: pointer;
+  margin: 0 .1rem;
+  padding: .4rem .7rem;
+  border-radius: var(--Radius-xs);
+  transform: scale(1);
+  background: transparent
+}
+.dash .content .oproto .box .pst-item svg{
+  margin-right: .4rem;
+  width: 22px;
+  height: 22px;
+}
+.dash .content .oproto .box .pst-item svg path{
+  fill: var(--Dark-color);
+}
+.dash .content .oproto .box .pst-item span{
+  user-select: none;
+  font-size: .9375rem
+}
+.dash .content .oproto .box .pst-item:active{
+  transform: scale(.969)
+}
+.dash .content .oproto .box .pst-item:hover{
+  background: var(--Smooth-Back)
+}
+.dash .content .oproto .box .avatar{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden
+}
+.dash .content .oproto .box .avatar img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  min-height: 100px;
-  min-width: 100%;
-  max-width: 100%;
-  padding: .35rem 5rem;
-  font-size: 1.2rem;
-  font-weight: bolder;
+  object-fit: cover
+}
+.dash .content .oproto .box .opnin{
+  width: 100%;
+  flex-grow: 8;
+  font-size: .88rem;
+  letter-spacing: 2px;
+  font-weight: 100;
+  padding: 8px 12px;
+  margin-left: .5rem;
+  cursor: pointer;
+  background: var(--White-color-secondary);
+  border-radius: 25px;
+  transition: 200ms ease-in-out;
+  user-select: none;
   color: var(--Dark-color)
+}
+.dash .content .oproto .box .opnin:active{
+  transform: scale(.995)
 }
 .dash .content .oproto .box .ftr-pst{
   position: relative;
@@ -1386,6 +1446,137 @@ aside ul li .languages a{
   position: relative;
   display: block;
   right: 0
+}
+/* opinion */
+.postForm{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: var(--Radius-sm);
+  background: var(--White-color);
+  box-shadow: var(--box-shadow2);
+  overflow: hidden;
+  width: 500px
+}
+.postForm .box{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: .5rem 0
+}
+.postForm .box .overpop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--White-color);
+  transform: translateX(100%);
+  height: 100%;
+  z-index: 9;
+  transition: 200ms cubic-bezier(0,0,1,1);
+  padding: .5rem 0
+}
+.postForm .box .overpop .header .back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+/* Start backPage */
+.postForm .backPage.active{ transform: translateX(0%); }
+/* End backPage */
+/* Start emojis */
+.postForm .emojis.active{ transform: translateX(0%); }
+/* End emojis */
+/* Start locationPage */
+.postForm .locationPage.active{ transform: translateX(0%); }
+/* End locationPage */
+.postForm .box .header{
+  position: relative;
+  text-align: center;
+}
+.postForm .box .header .close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.postForm .box .body{
+  position: relative;
+  width: 100%;
+  padding: 0 .8rem;
+}
+.postForm .box .body textarea{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 100%;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: .5rem .3rem;
+  color: var(--Dark-color);
+  line-height: 15px;
+  resize: none;
+  min-height: 90px;
+  max-height: 120px;
+  background: transparent;
+  border: none;
+  outline: none
+}
+.postForm .box .body .moreinfo{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow2);
+  border-radius: var(--Radius-xs);
+  margin: .5rem 0;
+  padding: .5rem
+}
+.postForm .box .body .moreinfo p{
+  margin: 0 .5rem;
+}
+.postForm .box .svg-icon{
+  margin: 0 .5rem;
+  padding: .3rem;
+  border-radius: 50%;
+  transition: 100ms cubic-bezier(0, 0, 1, 1);
+  cursor: pointer
+}
+.postForm .box .svg-icon:hover{
+  background: var(--White-color-secondary)
+}
+.postForm .box .svg-icon:active{
+  transform: scale(.969)
+}
+.postForm .box .body .moreinfo svg{
+  width: 24px;
+  height: 24px;
+}
+.postForm .box .body .btn-submit{
+  position: relative;
+  display: block;
+  outline: none;
+  border: none;
+  background: var(--Primary-color);
+  box-shadow: var(--box-shadow2);
+  border-radius: var(--Radius-xs);
+  word-break: break-word;
+  white-space: nowrap;
+  margin-top: .8rem;
+  margin-bottom: .3rem;
+  width: 100%;
+  color: #ffffff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .94rem;
+  padding: .7em
 }
 .dash .content .addons .box-addons{
   position: absolute;
@@ -1483,7 +1674,7 @@ aside ul li .languages a{
   height: 100%;
   border-radius: var(--Radius-xs);
   background: var(--White-color);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow2);
   outline: none;
   padding-top: .5rem
 }
@@ -1532,7 +1723,8 @@ aside ul li .languages a{
               linear-gradient(var(--Grey-color) 50%, transparent 0%) left/1px 20px repeat-y
 }
 /* Inner */
-.content .posts .post .inner{
+.content .posts .post .inner,
+.postForm .box .inner{
   position: relative;
   padding: .5rem 1rem;
   display: flex;
@@ -1540,44 +1732,49 @@ aside ul li .languages a{
   z-index: 4;
   width: 100%
 }
-.content .posts .post .inner .head{
+.content .posts .post .inner .head,
+.postForm .box .inner .head{
   z-index: 3;
   width: 100%
 }
-.content .posts .post .inner .head .off-user{
+.content .posts .post .inner .head .off-user,
+.postForm .box .inner .head .off-user{
   display: flex;
   flex-wrap: nowrap;
   width: 100%
 }
-.content .posts .post .inner .head .user-info{
+.content .posts .post .inner .head .user-info,
+.postForm .box .inner .head .user-info{
   position: relative;
   margin-left: .5rem;
   width: 100%
 }
-.content .posts .post .inner .head .user-info .inline{
-  margin-bottom: .3rem
-}
-.content .posts .post .inner .head .user-info .inline label{
+.content .posts .post .inner .head .user-info .inline label,
+.postForm .box .inner .head .user-info .inline label{
   margin-top: .15rem;
   margin-left: .5rem;
   font-size: .8em;
   color: var(--Grey-color)
 }
-.content .posts .post .inner .head .user-info .date{
+.content .posts .post .inner .head .user-info .date,
+.postForm .box .inner .head .user-info .date{
   color: var(--Grey-color);
   font-weight: bolder;
   font-size: .85em
 }
-.content .posts .post .inner .head .user-info .date p{
+.content .posts .post .inner .head .user-info .date p,
+.postForm .box .inner .head .user-info .date p{
   box-shadow: var(--box-shadow2);
   padding: .2rem .4rem;
   margin-left: .5rem
 }
-.content .posts .post .inner .head .user-info .date p svg{
+.content .posts .post .inner .head .user-info .date p svg,
+.postForm .box .inner .head .user-info .date p svg{
   width: 15px;
   height: 15px
 }
-.content .posts .post .inner .head .user-info span.text-bold{
+.content .posts .post .inner .head .user-info span.text-bold,
+.postForm .box .inner .head .user-info span.text-bold{
   position: relative;
   display: block;
   color: var(--Dark-color);
@@ -1585,7 +1782,8 @@ aside ul li .languages a{
   letter-spacing: 1px;
   font-size: .92rem
 }
-.content .posts .post .avatar{
+.content .posts .post .avatar,
+.postForm .box .avatar{
   position: relative;
   width: 50px;
   height: 50px;
@@ -1593,7 +1791,8 @@ aside ul li .languages a{
   box-shadow: var(--box-shadow);
   overflow: hidden
 }
-.content .posts .post .avatar img{
+.content .posts .post .avatar img,
+.postForm .box .avatar img{
   position: absolute;
   top: 0;
   left: 0;
@@ -1629,7 +1828,7 @@ aside ul li .languages a{
   transition: 300ms ease
 }
 .content .posts .post .dropdown > span:hover{
-  background: rgba(0,0,0,.08)
+  background: var(--White-color-secondary)
 }
 .content .posts .post .dropdown span svg{
   width: 20px;
@@ -1833,7 +2032,7 @@ aside ul li .languages a{
   flex-grow: 2;
   margin: 0 .3rem;
   background: var(--White-color-secondary);
-  border-radius: var(--Radius-xs)
+  border-radius: 25px
 }
 .content .posts .post .comments .comments-form .form-content .form-input textarea{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -2776,6 +2975,23 @@ aside ul li .languages a{
   }
   .profile .content .heading .gains .ski-edu{
       width: 100%;
+  }
+  .postForm{
+    width: 360px
+  }
+  .postForm .box .body{
+    padding: 0 .3rem
+  }
+  .postForm .box .body textarea{
+    padding: .5rem .9rem;
+  }
+  .postForm .box .body .moreinfo .items{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .postForm .moreinfo > p{
+    display: none;
   }
 }
 @media (max-width: 1232px) {

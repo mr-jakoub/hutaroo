@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import TextareaAutosize from 'react-autosize-textarea'
 import {logout} from '../../actions/auth'
 import Spinner from '../layout/Spinner'
 import PropTypes from 'prop-types'
@@ -8,6 +9,7 @@ import Posts from '../posts/Posts'
 import { getCurrentProfile } from '../../actions/profile'
 import { addPost } from '../../actions/post'
 import defaultImg from '../../assets/img/default.png'
+import PopUp from './PopUp'
 
 const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, profile: { user_profile, loading } }) => {
     const [leftAside, setLeftAside] = useState(false)
@@ -39,11 +41,14 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
             link: ''
         })
     }
+    //pop up
+    const [popupForm, setPopupForm] = useState("")
     useEffect(() => {
         getCurrentProfile()
     }, [getCurrentProfile])
     return loading && user_profile === null ? <Spinner /> : 
     <>
+        <PopUp popupForm={popupForm} match={match}></PopUp>
             <aside className={leftAside ?"blured-background show":"blured-background"}>
                 <span onClick={()=>{setLeftAside(!leftAside);setRightAside(false)}} className={leftAside ? "toggle svg-icon show": "toggle svg-icon"}>
                     <svg viewBox="0 0 330 330">
@@ -332,7 +337,7 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                             <div className="rises">
                                 <h3 className="text-center text-bold text-xs">Next Level</h3>
                                 <div className="box">
-                                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <svg viewBox="0 0 100 100">
                                         <circle cx="50" cy="50" r="42"></circle>
                                     </svg>
                                     <span className="counter text-bold">74%</span>
@@ -342,166 +347,199 @@ const Dashboard = ({ addPost, match, logout, getCurrentProfile, auth:{ user }, p
                     </div><br/>
                     <div className="my-2">
                         {!match.params.new ? (
-                        <div className="oproto mx-2">
-                            <p className="text-sm svg-icon text-bold my-3">New Opinion&nbsp;&nbsp;
-                                <svg viewBox="0 0 512 512">
-                                    <g>
-                                        <g>
-                                            <path d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792
-                                                H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083
-                                                c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z
-                                                "/>
-                                        </g>
-                                    </g>
-                                </svg>
-                            </p>
-                            <form onSubmit={e =>onSubmit(e)} className="box">
-                                {user &&
-                                <div className="avatar">
-                                    <img src={ user.avatar === 'default'?defaultImg:user.avatar} alt="avatar" />
+                        <div className="oproto">
+                            <div className="box">
+                                <div className="frame">
+                                    {user &&
+                                    <Link to={`/profile/${user._id}`}>
+                                        <div className="avatar">
+                                            <img src={ user.avatar === 'default'?defaultImg:user.avatar} alt="avatar" />
+                                        </div>
+                                    </Link>
+                                    }
+                                    <Link to="/dashboard/create" className='opnin' onClick={()=>setPopupForm("opinion")}>We would like to hear from you...</Link>
                                 </div>
-                                }
-                                <textarea name="text" value={text} onChange={e => onChange(e)} rows="4" placeholder="We would like to hear from you..." />
-                                <div className="ftr-pst">
-                                    <div className="items">
-                                        <div onClick={()=>{setFeelingBox(!feelingBox);setLocationBox(false);setLinkBox(false)}} className={feelingBox && !locationBox && !linkBox ? "svg-icon btn addons feelings active":"svg-icon btn addons feelings"}>
-                                            <svg viewBox="0 0 512 512">
-                                                <circle style={{fill:'#FFD93B'}} cx="256" cy="256" r="256"/>
-                                                <path style={{fill:'#F4C534'}} d="M512,256c0,141.44-114.64,256-256,256c-80.48,0-152.32-37.12-199.28-95.28
-                                                    c43.92,35.52,99.84,56.72,160.72,56.72c141.36,0,256-114.56,256-256c0-60.88-21.2-116.8-56.72-160.72
-                                                    C474.8,103.68,512,175.52,512,256z"/>
-                                                <path style={{fill:'#3E4347'}} d="M431.312,323.28c-18.88,79.36-90.08,138.56-175.36,138.56s-156.48-59.2-175.36-138.72
-                                                    c-1.44-6.08,4.16-11.36,10.08-9.6c111.04,33.12,221.28,33.76,330.56,0.16C427.312,311.76,432.752,317.2,431.312,323.28z"/>
-                                                <path style={{fill:'#E24B4B'}} d="M245.648,394.72c-65.536,0-112.224-19.28-103.136,26.288c0.048,0.24,0.144,0.464,0.192,0.704
-                                                    c30.928,25.072,70.288,40.112,113.248,40.112s82.32-15.056,113.248-40.096c0.048-0.256,0.144-0.48,0.192-0.72
-                                                    C378.48,375.44,311.2,394.72,245.648,394.72z"/>
-                                                <path style={{fill:'#FFFFFF'}} d="M93.232,314.192c9.68,34.72,78.64,61.504,162.4,61.504c83.456,0,152.192-26.592,162.272-61.136
-                                                    C310.56,346.88,202.288,346.224,93.232,314.192z"/>
-                                                <circle style={{fill:'#F4C534'}} cx="362.8" cy="214.608" r="98.448"/>
-                                                <path style={{fill:'#FFFFFF'}} d="M447.072,214.64c-2.592,46.832-42.4,84.768-88.944,84.768c-46.528,0-82.288-37.952-79.696-84.768
-                                                    c2.592-46.832,42.56-84.912,89.088-84.912S449.664,167.824,447.072,214.64z"/>
-                                                <path style={{fill:'#3E4347'}} d="M402.688,214.576c0.096,22.064-17.872,40.032-39.936,39.936
-                                                    c-22.064,0.096-40.048-17.888-39.936-39.952c-0.096-22.064,17.872-40.032,39.936-39.936
-                                                    C384.816,174.528,402.784,192.512,402.688,214.576z"/>
-                                                <ellipse transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 502.9126 608.1483)" style={{fill:'#FFFFFF'}} cx="377.408" cy="199.918" rx="11.92" ry="7.648"/>
-                                                <circle style={{fill:'#F4C534'}} cx="149.216" cy="214.608" r="98.448"/>
-                                                <path style={{fill:'#FFFFFF'}} d="M64.944,214.64c2.592,46.832,42.4,84.768,88.944,84.768c46.528,0,82.288-37.952,79.696-84.768
-                                                    c-2.592-46.832-42.56-84.912-89.088-84.912C97.952,129.728,62.352,167.824,64.944,214.64z"/>
-                                                <path style={{fill:'#3E4347'}} d="M109.312,214.576c-0.096,22.064,17.872,40.032,39.936,39.936
-                                                    c22.064,0.096,40.032-17.888,39.936-39.952c0.096-22.064-17.872-40.032-39.936-39.936
-                                                    C127.2,174.528,109.216,192.512,109.312,214.576z"/>
-                                                <ellipse transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 88.3791 436.5053)" style={{fill:'#FFFFFF'}} cx="134.593" cy="199.949" rx="7.648" ry="11.92"/>
-                                                <g>
-                                                    <path style={{fill:'#3E4347'}} d="M155.152,72.928c0,0-52.016-7.312-106.624,55.904C48.528,128.832,83.84,15.584,155.152,72.928z"/>
-                                                    <path style={{fill:'#3E4347'}} d="M356.848,72.928c0,0,52.016-7.312,106.624,55.904C463.472,128.832,428.16,15.584,356.848,72.928z"/>
-                                                </g>
-                                            </svg>
-                                            <span className="text-bold hide-sm subtext">Feelings</span>
-                                            <div className="box-addons">
-                                                <p className="text-bold">Global</p>
-                                                <div className="row emojis-box">
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😀 Happy</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😢 Sad</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>🥰 Very Well</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😴 Tired</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😇 Fortunate</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>🤪 Crazy</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😎 Motivated</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😯 Confused</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>🤣 Funny</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>😒 Not Funny</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>💪 Power</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>🤒 Sick</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>🤨 Doubt</span>
-                                                    </div>
-                                                    <div className="col-6 text-bold">
-                                                        <span onClick={feelingHandle}>🙄 Emmm</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={locationBox && !feelingBox && !linkBox?"svg-icon btn addons active":"svg-icon btn addons"}>
-                                            <p onClick={()=>{setLocationBox(!locationBox);setFeelingBox(false);setLinkBox(false)}}>
-                                            <svg viewBox="0 0 512 512">
-                                                <g>
-                                                    <path style={{fill:'var(--Primary-color)'}} d="M258.499,512c-5.186,0-10.008-2.68-12.745-7.091L102.869,274.652C85.289,246.26,76,213.534,76,180
-                                                        C76,80.748,156.748,0,256,0s180,80.748,180,180c0,32.539-8.779,64.428-25.389,92.22L271.368,504.707
-                                                        c-2.688,4.488-7.52,7.251-12.75,7.292C258.578,512,258.539,512,258.499,512z M256,30c-82.71,0-150,67.29-150,150
-                                                        c0,27.95,7.734,55.214,22.368,78.846l129.905,209.34l126.594-211.368C398.689,233.688,406,207.121,406,180
-                                                        C406,97.29,338.71,30,256,30z"/>
-                                                    <path style={{fill:'var(--Primary-color)'}} d="M256,270c-31.397,0-60.044-15.977-76.631-42.737C170.62,213.117,166,196.778,166,180
-                                                        c0-49.626,40.374-90,90-90s90,40.374,90,90c0,16.284-4.371,32.209-12.639,46.055C316.913,253.574,287.994,270,256,270z M256,120
-                                                        c-33.084,0-60,26.916-60,60c0,11.2,3.069,22.082,8.875,31.47C215.945,229.33,235.06,240,256,240
-                                                        c21.337,0,40.629-10.965,51.607-29.331c5.49-9.193,8.393-19.8,8.393-30.669C316,146.916,289.084,120,256,120z"/>
-                                                </g>
-                                            </svg>
-                                            <span className="text-bold hide-sm">Location</span>
-                                            </p>
-                                            <div className="box-addons">
-                                                <p className="text-bold">Location</p>
-                                                <input className="input-item" type="search" name="location" value={location} onChange={e => onChange(e)} placeholder="Arizona, California, etc..." />
-                                            </div>
-                                        </div>
-                                        <div className={linkBox && !locationBox && !feelingBox ?"svg-icon btn addons active":"svg-icon btn addons"}>
-                                            <p onClick={()=>{setLinkBox(!linkBox);setFeelingBox(false);setLocationBox(false)}}>
-                                                <svg viewBox="0 0 508 508">
-                                                <g>
-                                                    <g>
-                                                        <path style={{fill:'var(--Primary-color)'}} d="M254,0C146.7,0,0,81.1,0,254c0,168.5,141.1,254,254,254c193.7,0,254-169.7,254-254C508,129.6,412.8,0,254,0z M195.1,23.9
-                                                            c-26.5,22.6-48.5,60-62.7,106.4c-18.4-10.9-35.3-24.4-50.3-40.1C113.1,57.7,152.3,34.9,195.1,23.9z M71.2,102.4
-                                                            c16.8,17.5,35.9,32.4,56.7,44.2c-7.8,30.3-12.4,63.9-13,99.2H16.6C18.4,193.1,37.6,142.8,71.2,102.4z M71.2,405.6
-                                                            c-33.7-40.4-52.8-90.7-54.6-143.4h98.3c0.6,35.4,5.2,68.9,13,99.2C107.2,373.3,88.1,388.1,71.2,405.6z M82.1,417.9
-                                                            c15-15.7,31.9-29.2,50.3-40.1c14.2,46.3,36.2,83.8,62.7,106.4C152.3,473.1,113.1,450.3,82.1,417.9z M245.8,491
-                                                            c-42.6-5.4-79.3-53-99.1-121.2c30.6-15.5,64.4-24.2,99.1-25.5V491z M245.8,328c-36.2,1.2-71.4,10.1-103.3,25.7
-                                                            c-6.7-28-10.7-58.9-11.3-91.5h114.6V328z M245.8,245.8H131.2c0.6-32.6,4.6-63.5,11.3-91.5c32,15.6,67.2,24.5,103.3,25.7V245.8z
-                                                            M245.8,163.7c-34.8-1.2-68.5-10-99.1-25.5C166.5,69.9,203.2,22.4,245.8,17V163.7z M436.8,102.4c33.6,40.4,52.8,90.7,54.6,143.4
-                                                            h-98.2c-0.6-35.4-5.2-68.9-13-99.2C400.9,134.7,420,119.9,436.8,102.4z M425.9,90.1c-15,15.7-31.9,29.2-50.3,40.1
-                                                            c-14.2-46.3-36.2-83.7-62.7-106.4C355.7,34.9,394.9,57.7,425.9,90.1z M262.2,17c42.6,5.4,79.3,53,99.1,121.2
-                                                            c-30.6,15.5-64.3,24.2-99.1,25.5V17z M262.2,180c36.2-1.2,71.4-10.1,103.3-25.7c6.7,28,10.7,58.9,11.3,91.5H262.2V180z
-                                                            M262.2,262.2h114.6c-0.6,32.6-4.6,63.5-11.3,91.5c-31.9-15.7-67.1-24.6-103.3-25.7V262.2z M262.2,491V344.3
-                                                            c34.8,1.2,68.5,10,99.1,25.5C341.5,438.1,304.8,485.6,262.2,491z M312.9,484.1c26.5-22.6,48.5-60,62.7-106.4
-                                                            c18.4,10.9,35.3,24.4,50.3,40.1C394.9,450.3,355.7,473.1,312.9,484.1z M436.8,405.6c-16.8-17.5-35.9-32.3-56.6-44.2
-                                                            c7.8-30.3,12.4-63.9,13-99.2h98.2C489.6,314.9,470.4,365.2,436.8,405.6z"/>
-                                                    </g>
-                                                </g>
-                                            </svg>
-                                                <span className="text-bold hide-sm subtext">Link</span>
-                                            </p>
-                                            <div className="box-addons">
-                                                <p className="text-bold">Url</p>
-                                                <input className="input-item" type="text" name="link" value={link} onChange={e => onChange(e)} placeholder="www.exapmle.com" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="submit btn btn-primary">Post</button>
+                                <div className="line"></div>
+                                <div className="pst-items">
+                                    <Link to="/dashboard/create" onClick={()=>setPopupForm("room")} role="button" className="pst-item svg-icon">
+                                        <svg viewBox="0 0 384 384"><g><g><path d="M368,176c-8.832,0-16,7.168-16,16c0,88.224-71.776,160-160,160S32,280.224,32,192S103.776,32,192,32
+                                        c42.952,0,83.272,16.784,113.544,47.264c6.216,6.272,16.352,6.312,22.624,0.08c6.272-6.224,6.304-16.352,0.08-22.624
+                                        C291.928,20.144,243.536,0,192,0C86.128,0,0,86.128,0,192s86.128,192,192,192s192-86.128,192-192C384,183.168,376.832,176,368,176
+                                        z"></path></g></g><g><g><path d="M256,176h-48v-48c0-8.832-7.168-16-16-16c-8.832,0-16,7.168-16,16v48h-48c-8.832,0-16,7.168-16,16c0,8.832,7.168,16,16,16
+                                        h48v48c0,8.832,7.168,16,16,16c8.832,0,16-7.168,16-16v-48h48c8.832,0,16-7.168,16-16C272,183.168,264.832,176,256,176z"></path></g></g></svg>
+                                        <span>Build a room</span>
+                                    </Link>
+                                    <Link to="/dashboard/create" onClick={()=>setPopupForm("course")} role="button" className="pst-item svg-icon">
+                                        <svg style={{width:"26px",height:"26px"}} viewBox="0 0 1024 1024"><path d="M482.2656 696.6784l-212.765867 212.770133a27.733333 27.733333 0 1 1-39.223466-39.223466l173.546666-173.546667h78.442667z m129.591467 0l173.546666 173.546667a27.733333 27.733333 0 1 1-39.223466 39.223466l-212.765867-212.770133h78.442667z"  /><path d="M882.005333 230.4c0.785067 4.1472 1.194667 8.426667 1.194667 12.8v435.2c0 37.704533-30.562133 68.266667-68.266667 68.266667H209.066667c-37.704533 0-68.266667-30.562133-68.266667-68.266667V243.2c0-4.373333 0.4096-8.6528 1.194667-12.8H125.866667a27.733333 27.733333 0 1 1 0-55.466667h772.266666a27.733333 27.733333 0 1 1 0 55.466667h-16.128z m-51.272533 0H193.2672A8.878933 8.878933 0 0 0 192 234.986667v451.626666c0 4.8896 3.925333 8.853333 8.768 8.853334h622.464c4.842667 0 8.768-3.968 8.768-8.853334V234.986667c0-1.6768-0.465067-3.246933-1.2672-4.586667zM268.8 337.066667h179.2a25.6 25.6 0 0 1 0 51.2H268.8a25.6 25.6 0 1 1 0-51.2z m0 153.6h439.466667a25.6 25.6 0 0 1 0 51.2H268.8a25.6 25.6 0 0 1 0-51.2z m268.8-153.6h17.066667a25.6 25.6 0 0 1 0 51.2h-17.066667a25.6 25.6 0 0 1 0-51.2z"  /></svg>
+                                        <span>Teach audience</span>
+                                    </Link>
+                                    <Link to="/dashboard/create" onClick={()=>setPopupForm("todo")} role="button" className="pst-item svg-icon">
+                                        <svg viewBox="0 0 1024 1024"><path d="M273.066667 307.2m-34.133334 0a34.133333 34.133333 0 1 0 68.266667 0 34.133333 34.133333 0 1 0-68.266667 0Z" /><path d="M273.066667 512m-34.133334 0a34.133333 34.133333 0 1 0 68.266667 0 34.133333 34.133333 0 1 0-68.266667 0Z" /><path d="M887.466667 0H136.533333a34.133333 34.133333 0 0 0-34.133333 34.133333v955.733334a34.133333 34.133333 0 0 0 34.133333 34.133333h750.933334a34.133333 34.133333 0 0 0 34.133333-34.133333V34.133333a34.133333 34.133333 0 0 0-34.133333-34.133333zM853.333333 955.733333H170.666667V68.266667h682.666666z" /><path d="M375.466667 341.333333h341.333333a34.133333 34.133333 0 0 0 0-68.266666H375.466667a34.133333 34.133333 0 0 0 0 68.266666zM375.466667 546.133333h341.333333a34.133333 34.133333 0 0 0 0-68.266666H375.466667a34.133333 34.133333 0 0 0 0 68.266666zM375.466667 750.933333h341.333333a34.133333 34.133333 0 0 0 0-68.266666H375.466667a34.133333 34.133333 0 0 0 0 68.266666z" /><path d="M273.066667 716.8m-34.133334 0a34.133333 34.133333 0 1 0 68.266667 0 34.133333 34.133333 0 1 0-68.266667 0Z" /></svg>
+                                        <span>Daily tasks</span>
+                                    </Link>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+                        // <div className="oproto mx-2">
+                        //     <p className="text-sm svg-icon text-bold my-3">New Opinion&nbsp;&nbsp;
+                        //         <svg viewBox="0 0 512 512">
+                        //             <g>
+                        //                 <g>
+                        //                     <path d="M508.875,248.458l-160-160c-4.167-4.167-10.917-4.167-15.083,0c-4.167,4.167-4.167,10.917,0,15.083l141.792,141.792
+                        //                         H10.667C4.771,245.333,0,250.104,0,256s4.771,10.667,10.667,10.667h464.917L333.792,408.458c-4.167,4.167-4.167,10.917,0,15.083
+                        //                         c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125l160-160C513.042,259.375,513.042,252.625,508.875,248.458z
+                        //                         "/>
+                        //                 </g>
+                        //             </g>
+                        //         </svg>
+                        //     </p>
+                        //     <form onSubmit={e =>onSubmit(e)} className="box">
+                        //         {user &&
+                        //         <div className="avatar">
+                        //             <img src={ user.avatar === 'default'?defaultImg:user.avatar} alt="avatar" />
+                        //         </div>
+                        //         }
+                        //         <textarea name="text" value={text} onChange={e => onChange(e)} rows="4" placeholder="We would like to hear from you..." />
+                        //         <div className="ftr-pst">
+                        //             <div className="items">
+                        //                 <div onClick={()=>{setFeelingBox(!feelingBox);setLocationBox(false);setLinkBox(false)}} className={feelingBox && !locationBox && !linkBox ? "svg-icon btn addons feelings active":"svg-icon btn addons feelings"}>
+                        //                     <svg viewBox="0 0 512 512">
+                        //                         <circle style={{fill:'#FFD93B'}} cx="256" cy="256" r="256"/>
+                        //                         <path style={{fill:'#F4C534'}} d="M512,256c0,141.44-114.64,256-256,256c-80.48,0-152.32-37.12-199.28-95.28
+                        //                             c43.92,35.52,99.84,56.72,160.72,56.72c141.36,0,256-114.56,256-256c0-60.88-21.2-116.8-56.72-160.72
+                        //                             C474.8,103.68,512,175.52,512,256z"/>
+                        //                         <path style={{fill:'#3E4347'}} d="M431.312,323.28c-18.88,79.36-90.08,138.56-175.36,138.56s-156.48-59.2-175.36-138.72
+                        //                             c-1.44-6.08,4.16-11.36,10.08-9.6c111.04,33.12,221.28,33.76,330.56,0.16C427.312,311.76,432.752,317.2,431.312,323.28z"/>
+                        //                         <path style={{fill:'#E24B4B'}} d="M245.648,394.72c-65.536,0-112.224-19.28-103.136,26.288c0.048,0.24,0.144,0.464,0.192,0.704
+                        //                             c30.928,25.072,70.288,40.112,113.248,40.112s82.32-15.056,113.248-40.096c0.048-0.256,0.144-0.48,0.192-0.72
+                        //                             C378.48,375.44,311.2,394.72,245.648,394.72z"/>
+                        //                         <path style={{fill:'#FFFFFF'}} d="M93.232,314.192c9.68,34.72,78.64,61.504,162.4,61.504c83.456,0,152.192-26.592,162.272-61.136
+                        //                             C310.56,346.88,202.288,346.224,93.232,314.192z"/>
+                        //                         <circle style={{fill:'#F4C534'}} cx="362.8" cy="214.608" r="98.448"/>
+                        //                         <path style={{fill:'#FFFFFF'}} d="M447.072,214.64c-2.592,46.832-42.4,84.768-88.944,84.768c-46.528,0-82.288-37.952-79.696-84.768
+                        //                             c2.592-46.832,42.56-84.912,89.088-84.912S449.664,167.824,447.072,214.64z"/>
+                        //                         <path style={{fill:'#3E4347'}} d="M402.688,214.576c0.096,22.064-17.872,40.032-39.936,39.936
+                        //                             c-22.064,0.096-40.048-17.888-39.936-39.952c-0.096-22.064,17.872-40.032,39.936-39.936
+                        //                             C384.816,174.528,402.784,192.512,402.688,214.576z"/>
+                        //                         <ellipse transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 502.9126 608.1483)" style={{fill:'#FFFFFF'}} cx="377.408" cy="199.918" rx="11.92" ry="7.648"/>
+                        //                         <circle style={{fill:'#F4C534'}} cx="149.216" cy="214.608" r="98.448"/>
+                        //                         <path style={{fill:'#FFFFFF'}} d="M64.944,214.64c2.592,46.832,42.4,84.768,88.944,84.768c46.528,0,82.288-37.952,79.696-84.768
+                        //                             c-2.592-46.832-42.56-84.912-89.088-84.912C97.952,129.728,62.352,167.824,64.944,214.64z"/>
+                        //                         <path style={{fill:'#3E4347'}} d="M109.312,214.576c-0.096,22.064,17.872,40.032,39.936,39.936
+                        //                             c22.064,0.096,40.032-17.888,39.936-39.952c0.096-22.064-17.872-40.032-39.936-39.936
+                        //                             C127.2,174.528,109.216,192.512,109.312,214.576z"/>
+                        //                         <ellipse transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 88.3791 436.5053)" style={{fill:'#FFFFFF'}} cx="134.593" cy="199.949" rx="7.648" ry="11.92"/>
+                        //                         <g>
+                        //                             <path style={{fill:'#3E4347'}} d="M155.152,72.928c0,0-52.016-7.312-106.624,55.904C48.528,128.832,83.84,15.584,155.152,72.928z"/>
+                        //                             <path style={{fill:'#3E4347'}} d="M356.848,72.928c0,0,52.016-7.312,106.624,55.904C463.472,128.832,428.16,15.584,356.848,72.928z"/>
+                        //                         </g>
+                        //                     </svg>
+                        //                     <span className="text-bold hide-sm subtext">Feelings</span>
+                        //                     <div className="box-addons">
+                        //                         <p className="text-bold">Global</p>
+                        //                         <div className="row emojis-box">
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😀 Happy</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😢 Sad</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>🥰 Very Well</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😴 Tired</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😇 Fortunate</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>🤪 Crazy</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😎 Motivated</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😯 Confused</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>🤣 Funny</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>😒 Not Funny</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>💪 Power</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>🤒 Sick</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>🤨 Doubt</span>
+                        //                             </div>
+                        //                             <div className="col-6 text-bold">
+                        //                                 <span onClick={feelingHandle}>🙄 Emmm</span>
+                        //                             </div>
+                        //                         </div>
+                        //                     </div>
+                        //                 </div>
+                        //                 <div className={locationBox && !feelingBox && !linkBox?"svg-icon btn addons active":"svg-icon btn addons"}>
+                        //                     <p onClick={()=>{setLocationBox(!locationBox);setFeelingBox(false);setLinkBox(false)}}>
+                        //                     <svg viewBox="0 0 512 512">
+                        //                         <g>
+                        //                             <path style={{fill:'var(--Primary-color)'}} d="M258.499,512c-5.186,0-10.008-2.68-12.745-7.091L102.869,274.652C85.289,246.26,76,213.534,76,180
+                        //                                 C76,80.748,156.748,0,256,0s180,80.748,180,180c0,32.539-8.779,64.428-25.389,92.22L271.368,504.707
+                        //                                 c-2.688,4.488-7.52,7.251-12.75,7.292C258.578,512,258.539,512,258.499,512z M256,30c-82.71,0-150,67.29-150,150
+                        //                                 c0,27.95,7.734,55.214,22.368,78.846l129.905,209.34l126.594-211.368C398.689,233.688,406,207.121,406,180
+                        //                                 C406,97.29,338.71,30,256,30z"/>
+                        //                             <path style={{fill:'var(--Primary-color)'}} d="M256,270c-31.397,0-60.044-15.977-76.631-42.737C170.62,213.117,166,196.778,166,180
+                        //                                 c0-49.626,40.374-90,90-90s90,40.374,90,90c0,16.284-4.371,32.209-12.639,46.055C316.913,253.574,287.994,270,256,270z M256,120
+                        //                                 c-33.084,0-60,26.916-60,60c0,11.2,3.069,22.082,8.875,31.47C215.945,229.33,235.06,240,256,240
+                        //                                 c21.337,0,40.629-10.965,51.607-29.331c5.49-9.193,8.393-19.8,8.393-30.669C316,146.916,289.084,120,256,120z"/>
+                        //                         </g>
+                        //                     </svg>
+                        //                     <span className="text-bold hide-sm">Location</span>
+                        //                     </p>
+                        //                     <div className="box-addons">
+                        //                         <p className="text-bold">Location</p>
+                        //                         <input className="input-item" type="search" name="location" value={location} onChange={e => onChange(e)} placeholder="Arizona, California, etc..." />
+                        //                     </div>
+                        //                 </div>
+                        //                 <div className={linkBox && !locationBox && !feelingBox ?"svg-icon btn addons active":"svg-icon btn addons"}>
+                        //                     <p onClick={()=>{setLinkBox(!linkBox);setFeelingBox(false);setLocationBox(false)}}>
+                        //                         <svg viewBox="0 0 508 508">
+                        //                         <g>
+                        //                             <g>
+                        //                                 <path style={{fill:'var(--Primary-color)'}} d="M254,0C146.7,0,0,81.1,0,254c0,168.5,141.1,254,254,254c193.7,0,254-169.7,254-254C508,129.6,412.8,0,254,0z M195.1,23.9
+                        //                                     c-26.5,22.6-48.5,60-62.7,106.4c-18.4-10.9-35.3-24.4-50.3-40.1C113.1,57.7,152.3,34.9,195.1,23.9z M71.2,102.4
+                        //                                     c16.8,17.5,35.9,32.4,56.7,44.2c-7.8,30.3-12.4,63.9-13,99.2H16.6C18.4,193.1,37.6,142.8,71.2,102.4z M71.2,405.6
+                        //                                     c-33.7-40.4-52.8-90.7-54.6-143.4h98.3c0.6,35.4,5.2,68.9,13,99.2C107.2,373.3,88.1,388.1,71.2,405.6z M82.1,417.9
+                        //                                     c15-15.7,31.9-29.2,50.3-40.1c14.2,46.3,36.2,83.8,62.7,106.4C152.3,473.1,113.1,450.3,82.1,417.9z M245.8,491
+                        //                                     c-42.6-5.4-79.3-53-99.1-121.2c30.6-15.5,64.4-24.2,99.1-25.5V491z M245.8,328c-36.2,1.2-71.4,10.1-103.3,25.7
+                        //                                     c-6.7-28-10.7-58.9-11.3-91.5h114.6V328z M245.8,245.8H131.2c0.6-32.6,4.6-63.5,11.3-91.5c32,15.6,67.2,24.5,103.3,25.7V245.8z
+                        //                                     M245.8,163.7c-34.8-1.2-68.5-10-99.1-25.5C166.5,69.9,203.2,22.4,245.8,17V163.7z M436.8,102.4c33.6,40.4,52.8,90.7,54.6,143.4
+                        //                                     h-98.2c-0.6-35.4-5.2-68.9-13-99.2C400.9,134.7,420,119.9,436.8,102.4z M425.9,90.1c-15,15.7-31.9,29.2-50.3,40.1
+                        //                                     c-14.2-46.3-36.2-83.7-62.7-106.4C355.7,34.9,394.9,57.7,425.9,90.1z M262.2,17c42.6,5.4,79.3,53,99.1,121.2
+                        //                                     c-30.6,15.5-64.3,24.2-99.1,25.5V17z M262.2,180c36.2-1.2,71.4-10.1,103.3-25.7c6.7,28,10.7,58.9,11.3,91.5H262.2V180z
+                        //                                     M262.2,262.2h114.6c-0.6,32.6-4.6,63.5-11.3,91.5c-31.9-15.7-67.1-24.6-103.3-25.7V262.2z M262.2,491V344.3
+                        //                                     c34.8,1.2,68.5,10,99.1,25.5C341.5,438.1,304.8,485.6,262.2,491z M312.9,484.1c26.5-22.6,48.5-60,62.7-106.4
+                        //                                     c18.4,10.9,35.3,24.4,50.3,40.1C394.9,450.3,355.7,473.1,312.9,484.1z M436.8,405.6c-16.8-17.5-35.9-32.3-56.6-44.2
+                        //                                     c7.8-30.3,12.4-63.9,13-99.2h98.2C489.6,314.9,470.4,365.2,436.8,405.6z"/>
+                        //                             </g>
+                        //                         </g>
+                        //                     </svg>
+                        //                         <span className="text-bold hide-sm subtext">Link</span>
+                        //                     </p>
+                        //                     <div className="box-addons">
+                        //                         <p className="text-bold">Url</p>
+                        //                         <input className="input-item" type="text" name="link" value={link} onChange={e => onChange(e)} placeholder="www.exapmle.com" />
+                        //                     </div>
+                        //                 </div>
+                        //             </div>
+                        //             <button type="submit" className="submit btn btn-primary">Post</button>
+                        //         </div>
+                        //     </form>
+                        // </div>
                         ): match.params.new === "room"?(
                             <div className="oproto mx-2">
                                 <h3 className="text-sm svg-icon text-bold my-3">New Room&nbsp;&nbsp;
