@@ -11,7 +11,14 @@ app.use(express.json({extended: false}))
 // Upload files
 app.use(fileUpload({ createParentPath: true }))//1mb
 
-app.get('/', (req, res)=> res.send('API Running'))
+// Serve static assets in production
+if(process.env.NODE_ENV === 'production'){
+    // Set static folder /* set build witch contains the index.html */
+    app.use(express.static('client/build'))
+    app.get('*', (req, res)=>{
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 // Define Routes
 app.use('/api/users',require('./routes/api/users'))
