@@ -17,6 +17,7 @@
   "author": "yaakoub ourghi",
   "license": "MIT",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.6",
     "express": "^4.17.1",
@@ -32,6 +33,7 @@
     "react-autosize-textarea": "^7.1.0",
     "react-hashtag": "^2.1.2",
     "react-html-parser": "^2.0.2",
+    "react-router": "^6.3.0",
     "request": "^2.88.2",
     "uuid": "^8.3.2"
   },

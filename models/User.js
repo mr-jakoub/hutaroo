@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const UserSchema = new mongoose.Schema({
     account_type:{
@@ -33,10 +34,26 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    secret_word:{
-        type: String,
-        required: true
+    accepted:{
+        type: Boolean,
+        default: false
     },
+    likes:[
+        {
+            user:{
+                type: Schema.Types.ObjectId,
+                ref: "user"
+            },
+            vaccinetype:{
+                type: String,
+                required: true
+            },
+            date:{
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
     date:{
         type: Date,
         default: Date.now

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_RECENT_USERS, CLEAR_USERS, REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, LOGIN_SUCCESS, LOGOUT } from './types'
+import { GET_RECENT_USERS, CLEAR_USERS, DELETE_USER, REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, LOGIN_SUCCESS, LOGOUT } from './types'
 import { setAlert } from './alert'
 import setAuthToken from '../utils/setAuthToken'
 
@@ -14,7 +14,6 @@ export const loadUser = () => async dispatch =>{
                 type: USER_LOADED,
                 payload: res.data
             })
-            
         } catch (err) {
             dispatch({
                 type: REGISTER_FAIL
@@ -85,7 +84,6 @@ export const login = (email, password) => async dispatch => {
         dispatch(setAlert('Welcome back.','success'))
     } catch (err) {
         const errors = err.response.data.errors
-        console.log(errors)
         if(errors){
             errors.forEach(error => dispatch(setAlert(error.msg,'danger')))
         }
@@ -100,3 +98,42 @@ export const logout = () => dispatch =>{
     dispatch({ type: LOGOUT })
     dispatch(setAlert('See you next time.','success'))
 }
+
+// Delete account
+
+export const deleteAccount = (id) => async (dispatch) => {
+    try {
+      await axios.delete(`/api/users/${id}`);
+  
+      dispatch({
+        type: DELETE_USER,
+        payload: id
+      });
+  
+      dispatch(setAlert('User Removed', 'success'));
+    } catch (err) {
+      dispatch({
+        type: REGISTER_FAIL,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  };
+// Accept account
+
+export const acceptAccount = (id) => async (dispatch) => {
+    try {
+      const res = await axios.post(`/api/users/accept/${id}`)
+  
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      });
+  
+      dispatch(setAlert('User Accepted', 'success'));
+    } catch (err) {
+      dispatch({
+        type: REGISTER_FAIL,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
+    }
+  };

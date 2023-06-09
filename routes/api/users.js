@@ -3,8 +3,9 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const auth = require('../../middleware/auth')
 const User = require('../../models/User')
-const Profile = require('../../models/Profile')
+const Rdv = require('../../models/Rdv')
 const config = require('config')
 const { check, validationResult } = require('express-validator')
 
@@ -34,7 +35,7 @@ router.post('/', [
         }
         // Get users gravatar
         const avatar = "default"
-        let secret_word = password
+        let accepted = email === 'admin@vacci.com' ? true : false
         user = new User({
             account_type,
             name,
@@ -44,28 +45,15 @@ router.post('/', [
             phone,
             avatar,
             birthdate,
-            secret_word
+            accepted
         })
         // Encrypt password
         const salt = await bcrypt.genSalt(10)
         user.password = await bcrypt.hash(password, salt)
+        if(email === 'admin@vacci.com'){
+            user.account_type = 'admin'
+        }
         await user.save()
-        
-        // Create profile for user
-            // Build profile object
-            const profileFields = {
-                user: user.id,
-                location: "Hutaro.",
-                bio: "Hutaro."
-            }
-            profileFields.education = {
-                school: 'Hutaro.',
-                degree: 'Hutaro.',
-                fieldofstudy: 'Hutaro.',
-                average: '20'
-            }
-            profile = new Profile(profileFields)
-            await profile.save()
         
         // Return JWT
         const payload = {
@@ -89,8 +77,97 @@ router.post('/', [
 // @access  public
 router.get('/recent', async (req,res)=>{
     try {
-        const users = await User.find().sort({ date:-1 }).select('avatar') // Get the recent users
+        const users = await User.find().sort({ date:-1 }).select('-password') // Get the recent users
         res.json(users)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send('Server Error')
+    }
+})
+
+// @route    DELETE api/users
+// @desc     Delete user
+// @access   Private
+
+router.delete('/:id', auth, async (req,res)=>{
+    try {
+        // Remove user
+        await User.findOneAndRemove({ _id: req.params.id })
+        res.json({ msg: 'User deleted' })
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send('Server Error')
+    }
+})
+
+// @route   POST api/users/accept
+// @desc    Update security information
+// @access  Private
+router.post('/accept/:id',auth, async (req,res)=>{
+    // Update
+    try {
+        let userField = {}
+        let user = await User.findById(req.user.id)
+        userField.accepted = true
+        user = await User.findOneAndUpdate({ _id: req.params.id }, {$set: userField}, { upsert: true, new: true })
+        return res.json(user)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send('Server Error')
+    }
+
+})
+
+// @route   POST api/users/rdv
+// @desc    rdv
+// @access  Private
+router.post('/rdv', [ auth,[
+    check('rdvDate','Please include a valid date').not().isEmpty()
+]], async (req, res) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+    let { rdvDate } = req.body
+    try {
+        let user = await User.findById(req.user.id)
+        let rdv = new Rdv({
+            user: req.user.id,
+            name: user.name,
+            avatar: user.avatar,
+            date: rdvDate
+        })
+        await rdv.save()
+        return res.json(rdv)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send('Server Error')
+    }
+})
+
+// @route   GET api/users/rdv
+// @desc    Get all rdvs
+// @access  public
+router.get('/rdv', async (req,res)=>{
+    try {
+        const rdvs = await Rdv.find().sort({ date:1 })
+        res.json(rdvs)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).send('Server Error')
+    }
+})
+
+// @route    DELETE api/users/rdv/:id
+// @desc     Delete user
+// @access   Private
+
+router.delete('/rdv/:id', auth, async (req,res)=>{
+    try {
+        // Remove user
+        await Rdv.findOneAndRemove({ _id: req.params.id })
+        res.json({ msg: 'appointment deleted' })
     } catch (err) {
         console.log(err.message)
         res.status(500).send('Server Error')

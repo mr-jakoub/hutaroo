@@ -1,4 +1,4 @@
-import { GET_RECENT_USERS, CLEAR_USERS, REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, LOGIN_SUCCESS, LOGOUT } from '../actions/types'
+import { GET_RECENT_USERS, CLEAR_USERS, DELETE_USER, REGISTER_SUCCESS, REGISTER_FAIL, USER_LOADED, LOGIN_SUCCESS, LOGOUT } from '../actions/types'
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -26,6 +26,7 @@ const auth = (state = initialState, action)=>{
         }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
+        case DELETE_USER:
             localStorage.setItem('token', payload.token)
             return {
                 ...state,

@@ -8,8 +8,6 @@ import Login from './components/auth/Login'
 import Alert from './components/layout/Alert'
 import Dashboard from './components/dashboard/Dashboard'
 import PrivateRoute from './components/routing/PrivateRoute'
-import Profile from './components/profile/Profile'
-import EditProfile from './components/profile/EditProfile'
 
 // Redux
 import { Provider } from 'react-redux'
@@ -24,10 +22,10 @@ if(localStorage.token){
 window.addEventListener("load",()=>{
 const THEME_TYPE = localStorage.getItem("THEME_TYPE")
     if(THEME_TYPE === "DARK_MODE"){
-      document.documentElement.style.setProperty('--White-color', '#242526')
-      document.documentElement.style.setProperty('--White-color-secondary', '#3a3b3c')
+      document.documentElement.style.setProperty('--White-color', '#1a1a1a')
+      document.documentElement.style.setProperty('--White-color-secondary', '#2a2b2b')
       document.documentElement.style.setProperty('--Dark-color', '#f5f5f5')
-      document.documentElement.style.setProperty('--Light-color', '#18191a')
+      document.documentElement.style.setProperty('--Light-color', '#141414')
       document.documentElement.style.setProperty('--Grey-color', '#b0b3b8')
       document.documentElement.style.setProperty('--Smooth-Back', 'rgba(0,0,0,.07)')
       document.documentElement.style.setProperty('--box-shadow', '0 2px 2px rgba(255,255,255,.08),0 0 2px rgba(255,255,255,.08)')
@@ -54,9 +52,6 @@ const App = () => {
           <Route exact path='/login' component={Login} />
           <PrivateRoute exact path='/dashboard' component={Dashboard} />
           <PrivateRoute exact path='/dashboard/:new' component={Dashboard} />
-          <Route exact path='/profile/:id' component={Profile} />
-          <PrivateRoute exact path='/setting' component={EditProfile} />
-          <PrivateRoute exact path='/setting/:kind' component={EditProfile} />
         </Switch>
       </Router>
     </Provider>

@@ -1,6 +1,7 @@
 import { 
     GET_POSTS,
     GET_COMMENTS,
+    GET_RDVS,
     POST_ERROR,
     ADD_POST,
     DELETE_POST,
@@ -16,6 +17,7 @@ const initialState = {
     posts: [],
     post: null,
     comments: [],
+    rdvs:[],
     comment: null,
     loading: true,
     error: {}
@@ -34,6 +36,12 @@ const post = (state = initialState, action)=>{
             return {
                 ...state,
                 comments: payload,
+                loading: false
+            }
+        case GET_RDVS:
+            return {
+                ...state,
+                rdvs: payload,
                 loading: false
             }
         case ADD_POST:

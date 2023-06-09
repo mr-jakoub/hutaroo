@@ -2,6 +2,7 @@ import axios from 'axios'
 import { 
     GET_POSTS,
     GET_COMMENTS,
+    GET_RDVS,
     POST_ERROR,
     ADD_POST,
     DELETE_POST,
@@ -43,7 +44,7 @@ export const addPost = formData => async dispatch =>{
             type: ADD_POST,
             payload: res.data
         })
-        dispatch(setAlert('Post Created Successfully','success'))
+        dispatch(setAlert('Vaccine Created Successfully','success'))
     } catch (err) {
         dispatch({
             type: POST_ERROR,
@@ -70,12 +71,58 @@ export const deletePost = id => async dispatch =>{
 }
 
 // Add like
-export const addLike = postId => async dispatch =>{
+export const addVaccine = (postId,{vaccinetype}) => async dispatch =>{
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    const body = JSON.stringify({ vaccinetype })
     try {
-        const res = await axios.put(`/api/posts/like/${postId}`)
+        const res = await axios.put(`/api/posts/like/${postId}`,body,config)
         dispatch({
             type: UPDATE_LIKES,
-            payload: {postId, likes: res.data}
+            payload: res
+        })
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
+    }
+}
+
+// rdv request
+
+export const rdvRequest = ({rdvDate}) => async dispatch =>{
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    const body = JSON.stringify({ rdvDate })
+    try {
+        const res = await axios.post(`/api/users/rdv`,body,config)
+        dispatch({
+            type: UPDATE_LIKES,
+            payload: res
+        })
+        dispatch(setAlert('your appointment submited Successfully','success'))
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
+    }
+}
+
+// Get rdvs
+export const getrdvs = () => async dispatch =>{
+    try {
+        const res = await axios.get('/api/users/rdv')
+        dispatch({
+            type: GET_RDVS,
+            payload: res.data
         })
     } catch (err) {
         dispatch({
@@ -180,6 +227,23 @@ export const deleteComment = commentId => async dispatch =>{
         dispatch({
             type: REMOVE_COMMENT,
             payload: commentId
+        })
+        dispatch(setAlert('Comment Removed Successfully','success'))
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: { msg: err.response.statusText, status: err.response.status }
+        })
+    }
+}
+
+// Delete rdv
+export const deleteRdv = rdvId => async dispatch =>{
+    try {
+        await axios.delete(`/api/users/rdv/${rdvId}`)
+        dispatch({
+            type: REMOVE_COMMENT,
+            payload: rdvId
         })
         dispatch(setAlert('Comment Removed Successfully','success'))
     } catch (err) {
