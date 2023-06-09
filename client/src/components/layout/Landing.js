@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {getRecentUsers} from '../../actions/auth'
-import defaultImg from '../../assets/img/default.png'
 
 const Landing = ({ auth:{ isAuthenticated, users }, getRecentUsers }) => {
     const [active, setActive] = useState(0)
