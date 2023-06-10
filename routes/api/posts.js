@@ -17,8 +17,11 @@ router.post('/', [ auth, [
         return res.status(400).json({ errors: errors.array() })
     }
     try {
-        const user = await User.findById(req.user.id).select('-password')
         const { name, quantity, recommandedAge, expDate } = req.body
+        let oldvaccine = await Vaccine.findOne({ name })
+        if(oldvaccine){
+            return res.status(400).json({ errors: [{msg: 'This vaccine already exists !'}] })
+        }
         const newPost = new Vaccine({
             quantity,
             name,
@@ -75,13 +78,22 @@ router.put('/like/:id', [ auth, [
     }
     try {
         const user = await User.findById(req.params.id)
+        const stuff = await User.findById(req.user.id).select('-password')
+
         const { vaccinetype } = req.body
-        user.likes.unshift({ user: req.user.id, vaccinetype: vaccinetype })
-        console.log(user)
+        let oldvaccine = await Vaccine.findOne({ name: vaccinetype })
+        console.log(oldvaccine,vaccinetype)
+
+        const vaccinefields = { quantity: oldvaccine.quantity - 1 }
+
+        await Vaccine.findOneAndUpdate({ name: vaccinetype }, { $set: vaccinefields }, { upsert: true, new: true })
+
+        user.likes.unshift({ user: req.user.id, stuffName: stuff.name, vaccinetype: vaccinetype })
         await user.save()
         res.json(user.likes)
     } catch (err) {
-        res.status(500).send('Server Error yaah')
+        console.log(err)
+        res.status(500).send('Server Error')
     }
 })
 

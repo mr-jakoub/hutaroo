@@ -87,7 +87,7 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
                             <Link to="/dashboard/appointments">
                                 <i className='bx bxs-doughnut-chart' ></i>
                                 <span className="text">Appointments</span>
-                                <span className='notif'>{rdvs.length}</span>
+                                {rdvs.length !== 0&&<span className='notif'>{rdvs.length}</span>}
                             </Link>
                         </li>}
                         <li onClick={()=>setSidebarElem(4)} className={sidebarElem === 4 ? "active" : ''}>
@@ -405,20 +405,20 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Patient</th>
-                                                <th>Status</th>
-                                                <th>Doses</th>
+                                                <th>Stuff</th>
+                                                <th>Vaccine Type</th>
+                                                <th>Since</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {auth.users.filter(element=>element.account_type==='patient').filter(el=>el.accepted === true && el.likes.length >= 3).map(user=>(
-                                                <tr key={user._id} id={user._id}>
+                                            {auth.user.likes.map(vaccine=>(
+                                                <tr key={vaccine._id} id={vaccine._id}>
                                                     <td>
                                                         <img src={defaultImg} alt='Avatar'/>
-                                                        <p>{user.name}</p>
+                                                        <p>{vaccine.stuffName}</p>
                                                     </td>
-                                                    <td><span className={user.likes.length === 0? 'status' : user.likes.length ===1? 'status pending' : user.likes.length ===2?'status process':'status completed'}>{user.likes.length === 0? 'Not yet' : user.likes.length ===1? 'Pending' : user.likes.length ===2?'Process':'Completed'}</span></td>
-                                                    <td>{user.likes.length}</td>
+                                                    <td>{vaccine.vaccinetype}</td>
+                                                    <td>{sinceDate(vaccine.date)}</td>
                                                 </tr>
                                             ))}
                                         </tbody>
