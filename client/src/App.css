@@ -3036,12 +3036,6 @@ aside ul li .languages a{
 		display: none;
 	}
 }
-
-
-
-
-
-
 @media screen and (max-width: 576px) {
 	#content .navi form .form-input input {
 		display: none;
@@ -3211,10 +3205,6 @@ aside ul li .languages a{
 	width: calc(100% - 60px);
 	left: 60px;
 }
-
-
-
-
 /* .naviBAR */
 #content .navi {
 	height: 56px;
