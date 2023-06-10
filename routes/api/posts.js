@@ -18,10 +18,12 @@ router.post('/', [ auth, [
     }
     try {
         const user = await User.findById(req.user.id).select('-password')
-        const { name, quantity } = req.body
+        const { name, quantity, recommandedAge, expDate } = req.body
         const newPost = new Vaccine({
             quantity,
-            name
+            name,
+            recommandedAge,
+            expDate
         })
         const post = await newPost.save()
         res.json(post)

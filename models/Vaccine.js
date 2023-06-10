@@ -7,7 +7,16 @@ const VaccineSchema = new Schema({
         required: true
     },
     name:{
-        type: String
+        type: String,
+        required: true
+    },
+    recommandedAge:{
+        type: String,
+        required: true
+    },
+    expDate:{
+        type: Date,
+        required: true
     },
     date:{
         type: Date,

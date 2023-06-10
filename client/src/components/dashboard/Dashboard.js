@@ -17,7 +17,9 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
 
     const [formData, setFormData] = useState({
         name: '',
-        quantity: ''
+        quantity: '',
+        recommandedAge: '',
+        expDate: ''
     })  
     const [inject, setInject] = useState({
         vaccinetype: 'senovac'
@@ -27,7 +29,7 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
     })
     const {rdvDate} = rdv
     const onChange = e => setRdv({ ...rdv, [e.target.name]: e.target.value.trim() })
-    const {name,quantity} = formData
+    const {name,quantity,recommandedAge,expDate} = formData
     const onSubmit = e =>{
         e.preventDefault()
         addPost(formData)
@@ -85,6 +87,7 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
                             <Link to="/dashboard/appointments">
                                 <i className='bx bxs-doughnut-chart' ></i>
                                 <span className="text">Appointments</span>
+                                <span className='notif'>{rdvs.length}</span>
                             </Link>
                         </li>}
                         <li onClick={()=>setSidebarElem(4)} className={sidebarElem === 4 ? "active" : ''}>
@@ -140,12 +143,26 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
                                         {/* <i className='bx bx-search' ></i> */}
                                         {/* <i className='bx bx-filter' ></i> */}
                                     </div>
-                                    <form className='row' onSubmit={ e => onSubmit(e) }>
-                                        <div className="col-4">
-                                            <input className='input-item' name='name' value={name} placeholder='Vaccine Name' onChange={e=>setFormData({ ...formData, [e.target.name]: e.target.value })} type="text" />
+                                    <form onSubmit={ e => onSubmit(e) }>
+                                        <div className="row">
+                                            <div className="col-4">
+                                                <span>Vaccine Name</span>
+                                                <input className='input-item' name='name' value={name} placeholder='Vaccine Name' onChange={e=>setFormData({ ...formData, [e.target.name]: e.target.value })} type="text" />
+                                            </div>
+                                            <div className="col-4">
+                                                <span>Vaccine Quantity</span>
+                                                <input className='input-item' name='quantity' value={quantity} placeholder='Vaccine Quantity' onChange={e=>setFormData({ ...formData, [e.target.name]: e.target.value })} type="number" />
+                                            </div>
                                         </div>
-                                        <div className="col-4">
-                                            <input className='input-item' name='quantity' value={quantity} placeholder='Vaccine Quantity' onChange={e=>setFormData({ ...formData, [e.target.name]: e.target.value })} type="number" />
+                                        <div className="row">
+                                            <div className="col-4">
+                                                <span>RecommandedAge</span>
+                                                <input className='input-item' name='recommandedAge' value={recommandedAge} placeholder='Recommanded Age' onChange={e=>setFormData({ ...formData, [e.target.name]: e.target.value })} type="text" />
+                                            </div>
+                                            <div className="col-4">
+                                                <span>Expiration Date</span>
+                                                <input className='input-item' name='expDate' value={expDate} onChange={e=>setFormData({ ...formData, [e.target.name]: e.target.value })} type="date" />
+                                            </div>
                                         </div>
                                         <div className="col">
                                             <button className='btn update-btn'>Create</button>
@@ -157,8 +174,10 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
                                         <thead>
                                             <tr>
                                                 <th>Vaccine Type</th>
+                                                <th>Recommanded Age</th>
                                                 <th>Quantity</th>
-                                                <th>Acquisition date</th>
+                                                <th>Acquisition Date</th>
+                                                <th>Expiration Date</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
@@ -168,8 +187,12 @@ const Dashboard = ({ match, logout, acceptAccount,rdvRequest,deleteRdv, addVacci
                                                     <td>
                                                         <p>{vaccine.name}</p>
                                                     </td>
+                                                    <td>
+                                                        <p>{vaccine.recommandedAge}</p>
+                                                    </td>
                                                     <td><input name={vaccine.name} className='input-edit' type="number" value={vaccine.quantity} onChange={e=>setStore({ ...store, [e.target.name]: e.target.value })} /></td>
-                                                    <td>{vaccine.date}</td>
+                                                    <td><Moment format="DD/MM/YYYY">{vaccine.date}</Moment></td>
+                                                    <td><Moment format="DD/MM/YYYY">{vaccine.expDate}</Moment></td>
                                                     <td><i onClick={()=>deletePost(vaccine._id)} className='bx bx-trash'></i></td>
                                                 </tr>
                                             ))}

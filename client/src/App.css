@@ -3125,6 +3125,7 @@ aside ul li .languages a{
 	margin-top: 48px;
 }
 #sidebar .side-menu li {
+  position: relative;
 	height: 48px;
 	background: transparent;
 	margin-left: 6px;
@@ -3921,4 +3922,21 @@ tr.background-blue:hover{
   100% {
     transform: rotate(360deg);
   }
+}
+.notif{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-20%,-20%);
+  background: var(--Danger-color);
+  border-radius: 50%;
+  padding: .1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 18px;
+  height: 18px;
+  box-shadow: var(--box-shadow2);
+  font-size: .7rem;
 }
